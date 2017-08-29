@@ -1,0 +1,370 @@
+.gl-navbar {
+
+	position: absolute;
+	top: 0;
+	width: 100%;
+	box-sizing: border-box;
+	z-index: 50;
+	padding: 0 0 0 15px;
+	background-color: $glCWhite;
+
+	@include respond-to(xs) {
+		padding: 0 15px;
+	}
+
+	a {
+		color: $glCBlack;
+		&:visited {
+			color: $glCBlack;
+		}
+		&:hover {
+			color: $glCCoal;
+		}
+		&:active {
+			color: $glCCoal;
+		}
+	}
+	.navbar-brand	{
+		font-family: $glFBold;
+		font-size: 14px;
+		padding: 13px 0;
+	}
+	.navbar-brand.mobile-phone {
+		display: none;
+		@include respond-to(xs) {
+			display: inline-block;
+			position: absolute;
+			float: right;
+			right: 60px;
+			top: -1px;
+			img {
+				margin-top: -2px;
+				width: 18px;
+			}
+		}
+	}
+	.nav-item {
+		.nav-link, .gl-phone {
+			font-family: $glFRegular;
+			font-size: 11px;
+			padding: 15px;
+			cursor: pointer;
+			&:hover {
+				background-color: $glCGrey;
+			}
+			img {
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				margin-right: 6px;
+				margin-top: -2px;
+			}
+			@include respond-to(xs) {
+				img {
+					display: none;
+				}
+			}
+		}
+		&.dropdown.show .nav-link {
+			background-color: $glCGrey;
+		}
+		&.dropdown.show.gl-your-order.order-added .nav-link {
+			color: $glCWhite;
+			background-color: $glCGreen;
+			img {
+				filter: brightness(10);
+			}
+		}
+		.gl-phone {
+			cursor: default;
+			&:hover {
+				background-color: $glCWhite;
+			}
+		}
+	}
+
+	.nav-item.gl-phone-item {
+		display: flex;
+		@include respond-to(xs) {
+			display: none;
+		}
+	}
+
+	.nav-item.dropdown span.nav-link:after {
+		display: none;
+	}
+
+	.navbar-toggler {
+		outline: none;
+		.toggler-icon-bar {
+			height: 3px;
+			background-color: $glCBlack;
+			border-radius: 1.5px;
+			margin: 5px;
+		}
+	}
+
+	.dropdown-menu {
+		background-color: $glCGrey;
+		margin: 0;
+		border-radius: 0;
+		font-family: $glFRegular;
+		font-size: 11px;
+		border: none;
+		margin-top: 1px;
+		z-index: 100;
+		.dropdown-item {
+			padding: 10px 14px;
+		}
+		.dropdown-item:hover {
+			background-color: $glCWhite;
+		}
+		.dropdown-item.gl-contact-info:hover {
+			background-color: $glCGrey;
+		}
+		.dropdown-item.gl-load-co {
+			img {
+				display: inline-block;
+				width: 15px;
+				height: 15px;
+				margin-right: 6px;
+			}
+		}
+		.dropdown-item.dropdown-section-title {
+			cursor: default;
+			color: $glCTextGrey;
+			&:hover {
+				background-color: $glCGrey;
+			}
+		}
+		.dropdown-item.dropdown-section-item {
+			@include respond-to(xs) {
+				padding-left: 25px;
+			}
+		}
+		.dropdown-divider {
+			border-top: 1px solid $glCAuxGrey;
+		}
+		.dropdown-text {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.dropdown-text-left {
+				margin-right: 25px;
+			}
+			&:active, &:focus {
+				color: $glCBlack;
+				outline: none;
+			}
+			span {
+				display: block;
+			}
+			span.dropdown-text-label {
+				color: $glCTextGrey;
+			}
+		}
+	}
+
+	.gl-your-order {
+		@include respond-to(xs) {
+			margin-bottom: 15px;
+		}
+		&.show .dropdown-menu {
+			height: 70px;
+			width: 230px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			@include respond-to(xs) {
+				width: 100%;
+				margin-bottom: 15px;
+			}
+		}
+		&.show.order-added .dropdown-menu {
+			height: auto;
+			width: 450px;
+			background-color: $glCLightLightGrey;
+			padding: 0;
+			font-size: 16px;
+			border: 1px solid $glCGrey;
+			box-shadow: 0 1px 2px $glCGrey;
+			@include respond-to(xs) {
+				width: 100%;
+				margin-bottom: 15px;
+			}
+			@include respond-custom(320px, 520px) {
+				font-size: 12px;
+			}
+		}
+		.gl-your-order-content {
+			color: $glCTextGrey;
+		}
+		&.order-added .gl-your-order-content {
+			color: $glCBlack;
+		}
+		.order-item {
+			margin: 18px;
+			padding: 20px;
+			border: 2px solid $glCAuxGrey;
+			border-radius: 3px;
+			@include respond-custom(320px, 520px) {
+				margin: 6px;
+				padding: 12px;
+			}
+			.item-title {
+				font-family: $glFMedium;
+				font-size: 20px;
+				margin-bottom: 20px;
+			}
+			.item-price-controls {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.item-price {
+				display: inline-block;
+			}
+			.item-controls {
+				display: inline-block;
+				button, span {
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					height: 30px;
+					width: 30px;
+					background-color: transparent;
+					border: 2px solid $glCAuxGrey;
+					border-radius: 3px;
+					outline: none;
+					margin: 0;
+					padding: 0;
+					font-size: 16px;
+					@include respond-custom(320px, 520px) {
+						height: 20px;
+						width: 20px;
+						font-size: 11px;
+					}
+				}
+				button {
+					cursor: pointer;
+				}
+				.controls-minus {
+					border-right: none;
+				}
+				.item-quantity {
+					border-left: none;
+					border-right: none;
+					margin-left: -6px;
+				}
+				.controls-plus {
+					border-left: none;
+					margin-left: -6px;
+				}
+				.item-delete {
+					margin-left: 20px;
+					@include respond-custom(320px, 520px) {
+						margin-left: 0;
+					}
+				}
+			}
+			.item-additional {
+				p {
+					margin: 0;
+				}
+				span {
+					color: $glCTextGrey;
+				}
+			}
+			.item-delivery {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				.delivery-checkbox {
+					display: inline-flex;
+					flex-basis: 18px;
+					flex-shrink: 0;
+					height: 18px;
+					margin-right: 18px;
+					background-image: url('../img/gl-checkbox-unchecked.png');
+					cursor: pointer;
+					&.checked {
+						background-image: url('../img/gl-checkbox-checked.png');
+					}
+				}
+				p {
+					margin: 0;
+					color: $glCTextGrey;
+				}
+			}
+			.item-sum {
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+				font-family: $glFBold;
+			}
+		}
+		.price-number, .price-comment {
+			display: block;
+		}
+		.price-number {
+			font-family: $glFLight;
+			font-size: 30px;
+			@include respond-custom(320px, 520px) {
+				font-size: 16px;
+			}
+		}
+		.price-comment {
+			font-family: $glFRegular;
+			font-size: 16px;
+			color: $glCTextGrey;
+			@include respond-custom(320px, 520px) {
+				font-size: 11px;
+			}
+		}
+		.order-sum {
+			margin-top: 30px;
+			padding: 23px 18px;
+			background-color: $glCGreen;
+			color: $glCWhite;
+			.sum-title {
+				font-size: 20px;
+			}
+			.prices {
+				margin-top: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+				font-family: $glFBold;
+			}
+			.price-number, .price-comment {
+				color: $glCWhite;
+			}
+			.sum-comment {
+				margin-top: 10px;
+			}
+			.sum-comment p {
+				font-size: 15px;
+				margin: 0;
+				color: transparentize($glCWhite, 0.5);
+				@include respond-custom(320px, 520px) {
+					font-size: 12px;
+				}
+			}
+		}
+		.order-submit-section {
+			padding: 30px 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			.gl-section-button {
+				float: none;
+				background-color: transparent;
+				cursor: pointer;
+				&:hover {
+					background-color: $glCGreen;
+				}
+			}
+		}
+	}
+
+}

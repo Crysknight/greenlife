@@ -1,0 +1,81 @@
+.gl-footer {
+
+	background-color: $glCCoal;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	color: $glCWhite;
+	font-size: 15px;
+
+	@include respond-to(xs) {
+		font-size: 13px;
+	}
+
+	@include respond-custom(320px, 400px) {
+		font-size: 11px;
+	}
+
+	h3 {
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+
+	.all-rights-reserved {
+		margin-bottom: 10px;
+	}
+
+	.gl-copyright {
+		color: $glCTextGrey;
+		font-size: 16px;
+	}
+
+	.gl-section-button {
+		margin-top: 10px;
+		border: 2px solid $glCWhite;
+		color: $glCWhite;
+		float: none;
+		&:hover {
+			background-color: $glCWhite;
+			color: $glCCoal;
+		}
+		@include respond-to(sm) {
+			margin-top: -85px;
+			float: right;
+		}
+		@include respond-to(xs) {
+			margin-top: -85px;
+			float: right;
+		}
+	}
+
+	.footer-menu-title {
+		font-family: $glFBold;
+		font-size: 12px;
+		text-transform: uppercase;
+		margin-bottom: 15px;
+		margin-top: 5px;
+		cursor: default;
+		@include respond-to(sm) {
+			margin-top: 30px;
+		}
+		@include respond-to(xs) {
+			margin-top: 30px;
+		}
+	}
+
+	.footer-menu, .footer-menu ul {
+		list-style-type: none;
+		padding-left: 0;
+		li {
+			margin: 8px 0;
+		}
+	}
+
+	.footer-submenu-title {
+		color: $glCTextGrey;
+	}
+
+	.footer-submenu {
+		margin: 0 0 15px;
+	}
+
+}

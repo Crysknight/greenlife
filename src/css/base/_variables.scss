@@ -1,0 +1,55 @@
+
+/* =================================================================================================== */
+/* < COLORS > */
+/* =================================================================================================== */
+
+// Black'n'whites
+$glCBlack: #222222;
+$glCCoal: #333333;
+$glCWhite: #ffffff;
+$glCLightLightGrey: #f8f8f8;
+$glCLightGrey: #f2f2f2;
+$glCGrey: #ededed;
+$glCAuxGrey: #d5d5d5;
+$glCTextGrey: #969696;
+$glCBackgroundTextGrey: #ebede9;
+
+// Colorful
+$glCGreen: #598135;
+
+
+/* =================================================================================================== */
+/* < FONTS > */
+/* =================================================================================================== */
+
+$glFRegular: 'DINNextW1G';
+$glFBlack: 'DINNextW1G-Black';
+$glFBlackItalic: 'DINNextW1G-BlackItalic';
+$glFBold: 'DINNextW1G-Bold';
+$glFBoldItalic: 'DINNextW1G-BoldItalic';
+$glFHeavy: 'DINNextW1G-Heavy';
+$glFHeavyItalic: 'DINNextW1G-HeavyItalic';
+$glFItalic: 'DINNextW1G-Italic';
+$glFLight: 'DINNextW1G-Light';
+$glFLightItalic: 'DINNextW1G-LightItalic';
+$glFMedium: 'DINNextW1G-Medium';
+$glFMediumItalic: 'DINNextW1G-MediumItalic';
+$glFUltraLight: 'DINNextW1G-UltraLight';
+$glFUltraLightItalic: 'DINNextW1G-UltraLightItalic';
+
+
+/* =================================================================================================== */
+/* < COMPLEX VALUES > */
+/* =================================================================================================== */
+
+$glXBorderGreen: 2px solid $glCGreen;
+$glXGreyGradient: linear-gradient(to bottom, #3b3b3b, #262626);
+
+
+/* =================================================================================================== */
+/* < SCREEN SIZES > */
+/* =================================================================================================== */
+
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;

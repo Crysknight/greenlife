@@ -1,0 +1,32 @@
+.gl-map {
+	.gl-google-map {
+		height: 500px;
+		background-color: lighten($glCGreen, 40%);
+		@include respond-to(sm) {
+			height: 400px;
+		}
+	}
+	.gl-map-marker {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 35px;
+		height: 35px;
+		background-color: $glCWhite;
+		border-radius: 50%;
+		box-sizing: border-box;
+		&.numbered {
+			color: $glCGreen;
+			font-size: 16px;
+			border: $glXBorderGreen;
+		}
+		&.unnumbered:after {
+			display: inline-block;
+			content: "";
+			width: 6px;
+			height: 6px;
+			background-color: $glCGreen;
+			border-radius: 50%;
+		}
+	}
+}

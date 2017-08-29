@@ -1,0 +1,424 @@
+.gl-first-screen {
+	height: 100vh;
+	background-color: #201;
+	background-image: url('../img/bg.jpg');
+	background-size: cover;
+	background-position: center center;
+	display: flex;
+	align-items: center;
+	position: relative;
+	h1 {
+		margin-bottom: 35px;
+	}
+	p {
+		font-size: 50px;
+		color: $glCWhite;
+	}
+	.scroll-down {
+		position: absolute;
+		bottom: 0;
+		.scroll-down-inner {
+			background-color: $glCWhite;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 60px;
+			width: 256px;
+			border-radius: 10px 10px 0 0;
+			font-family: $glFMedium;
+			font-size: 11px;
+			cursor: pointer;
+			img {
+				margin-right: 20px;
+			}
+		}
+	}
+}
+
+.gl-racks {
+	padding-bottom: 60px;
+}
+
+.gl-racks-info {
+	padding-top: 80px;
+	padding-bottom: 90px;
+	background-color: $glCLightLightGrey;
+	@include respond-custom(320px, 400px) {
+		padding-top: 30px;
+		padding-bottom: 45px;
+	}
+	.rack-type {
+		padding: 25px;
+		position: relative;
+		border: $glXBorderGreen;
+		overflow: hidden;
+		margin-bottom: 30px;
+		display: block;
+		color: $glCBlack;
+		height: 240px;
+		@include respond-to(xs) {
+			height: 210px;
+		}
+		@include respond-custom(401px, 520px) {
+			height: 250px;
+		}
+		@include respond-custom(320px, 400px) {
+			height: 220px;
+		}
+		.type-bg {
+			margin: -25px;
+			position: absolute;
+		}
+		.type-bg-cover {
+			width: 100%;
+			height: 100%;
+			margin: -25px;
+			background-color: rgba(248, 248, 248, 1);
+			position: absolute;
+			transition: all 0.3s;
+		}
+		.type-number {
+			position: absolute;
+			top: 5px;
+			left: 32px;
+			font-family: $glFHeavy;
+			font-size: 90px;
+			color: $glCBackgroundTextGrey;
+			transition: all 0.3s;
+		}
+		.type-title {
+			margin-top: 20px;
+			margin-bottom: 20px;
+			position: relative;
+			z-index: 45;
+			transition: all 0.3s;
+		}
+		.type-info {
+			position: relative;
+			z-index: 45;
+			transition: all 0.3s;
+		}
+		&:hover .type-bg-cover {
+			background-color: rgba(0, 0, 0, 0.75);
+		}
+		&:hover .type-number {
+			color: transparent;
+		}
+		&:hover .type-title {
+			color: $glCWhite;
+		}
+		&:hover .type-info {
+			color: $glCWhite;
+		}
+	}
+}
+
+.gl-racks-terms {
+	padding-top: 80px;
+	padding-bottom: 90px;
+	background-color: $glCGrey;
+	@include respond-custom(320px, 400px) {
+		padding-top: 30px;
+		padding-bottom: 45px;
+	}
+	.rack-term {
+		border-top: 2px solid $glCBlack;
+		@include respond-to(xs) {
+			max-height: 80px;
+			overflow: hidden;
+			transition: all 0.3s;
+			&.unfolded {
+				max-height: 170px;
+			}
+		}
+		@include respond-custom(320px, 520px) {
+			max-height: 60px;
+		}
+	}
+	.rack-term-header {
+		font-size: 40px;
+		line-height: 1.1;
+		font-family: $glFLight;
+		margin: 20px 0;
+		@include respond-to(sm) {
+			font-size: 30px;
+		}
+		@include respond-to(xs) {
+			font-size: 30px;
+		}
+		@include respond-custom(320px, 520px) {
+			font-size: 18px;
+		}
+		span {
+			display: block;
+			@include respond-to(xs) {
+				display: inline;
+			}
+		}
+	}
+	.rack-term-desc {
+		width: 85%;
+		@include respond-to(xs) {
+			margin-bottom: 15px;
+		}
+	}
+	.rack-term-folder {
+		display: none;
+		@include respond-to(xs) {
+			display: inline-flex;
+			position: absolute;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.3s;
+			width: 55px;
+			height: 55px;
+			right: 20px;
+			top: 12px;
+			font-size: 40px;
+			font-family: $glFRegular;
+			transform: rotate(0deg);
+			&.unfolded {
+				transform: rotate(45deg);
+			}
+			span {
+				display: block;
+				margin-top: -3px;
+			}
+		}
+		@include respond-custom(320px, 520px) {
+			top: 2px;
+		}
+	}
+}
+
+.gl-racks-feats {
+	padding-top: 600px;
+	padding-bottom: 90px;
+	background-image: url('../img/racks-feats-bg.png'), $glXGreyGradient;
+	background-repeat: no-repeat, repeat;
+	background-size: 100% auto, cover;
+	background-position: top center;
+	color: $glCWhite;
+	@include respond-to(sm) {
+		padding-top: 500px;
+	}
+	@include respond-custom(768px, 820px) {
+		padding-top: 400px;
+	}
+	@include respond-to(xs) {
+		padding-top: 330px;
+	}
+	@include respond-custom(400px, 580px) {
+		padding-top: 250px;
+	}
+	@include respond-custom(320px, 400px) {
+		padding-top: 200px;
+		padding-bottom: 45px;
+	}
+	@include respond-custom(320px, 520px) {
+		font-size: 14px;
+	}
+	@include respond-custom(320px, 400px) {
+		font-size: 12px;
+	}
+	.gl-section-header {
+		text-align: center;
+	}
+	.gl-section-title {
+		color: $glCWhite;
+	}
+	.racks-feat {
+		padding-top: 20px;
+		.ml-auto, .mr-auto {
+			border-bottom: 1px solid $glCWhite;
+			padding-bottom: 20px;
+		}
+		.feat-title {
+			position: relative;
+			display: flex;
+			height: 100%;
+			align-items: center;
+			justify-content: center;
+		}
+		.feat-title-icon {
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			left: 0;
+			@include respond-to(md) {
+				width: 25px;
+				height: 25px;
+			}
+			@include respond-custom(320px, 525px) {
+				width: 20px;
+				height: 20px;
+			}
+		}
+		.feat-title-title {
+			text-align: center;
+			@include respond-to(xs) {
+				margin-right: -50px;
+			}
+		}
+		.feat-desc {
+			margin: 0;
+		}
+	}
+	.rack-size {
+		padding: 20px 0;
+		margin-top: 25px;
+		display: flex;
+		flex-flow: column wrap;
+		align-items: center;
+		justify-content: center;
+		span {
+			display: block;
+			width: 130px;
+			@include respond-custom(320px, 520px) {
+				width: 75px;
+			}
+		}
+		span.size {
+			font-size: 44px;
+			@include respond-custom(320px, 520px) {
+				font-size: 28px;
+			}
+		}
+		span.measure {
+			font-size: 22px;
+			@include respond-custom(320px, 520px) {
+				font-size: 12px;
+			}
+		}
+		&.rs-small {
+			border: 3px solid $glCWhite;
+		}
+		&.rs-big {
+			border: 3px solid $glCGreen;
+		}
+	}
+}
+
+.gl-partners {
+	padding-top: 80px;
+	padding-bottom: 90px;
+	@include respond-custom(320px, 400px) {
+		padding-top: 30px;
+		padding-bottom: 45px;
+	}
+	.col-lg-3.partner {
+		height: 270px;
+		padding: 95px 20px 55px;
+		transition: all 0.3s;
+		border: 1px solid $glCLightGrey;
+		border-right: none;
+		@include respond-to(md) {
+			padding: 65px 20px 55px;
+		}
+		@include respond-to(sm) {
+			padding: 65px 20px 55px;
+		}
+		@include respond-to(xs) {
+			padding: 65px 20px 55px;
+		}
+		.partner-logo, .delimiter, .partner-desc {
+			display: block;
+			width: 100%;
+		}
+		.partner-logo {
+			height: 70px;
+			width: auto;
+			filter: grayscale(1);
+			transition: all 0.3s;
+			margin: 0 auto;
+			@include respond-to(md) {
+				height: 55px;
+				filter: none;
+			}
+			@include respond-to(sm) {
+				height: 55px;
+				filter: none;
+			}
+			@include respond-to(xs) {
+				height: 55px;
+				filter: none;
+			}
+		}
+		.delimiter {
+			height: 0;
+			background-color: $glCBlack;
+			width: 70%;
+			margin: 0 15%;
+			display: block;
+			transition: all 0.3s;
+			@include respond-to(md) {
+				height: 1px;
+				margin: 20px 15% 15px;
+			}
+			@include respond-to(sm) {
+				height: 1px;
+				margin: 20px 15% 15px;
+			}
+			@include respond-to(xs) {
+				height: 1px;
+				margin: 20px 15% 15px;
+			}
+		}
+		.partner-desc {
+			text-align: center;
+			margin-bottom: 0;
+			display: block;
+			max-height: 0;
+			overflow: hidden;
+			transition: all 0.3s;
+			font-size: 15px;
+			@include respond-to(md) {
+				max-height: 80px;
+				font-size: 14px;
+			}
+			@include respond-to(sm) {
+				max-height: 80px;
+				font-size: 14px;
+			}
+			@include respond-to(xs) {
+				max-height: 80px;
+				font-size: 14px;
+			}
+		}
+		&:hover {
+			background-color: $glCLightGrey;
+			padding-top: 65px;
+			.partner-logo {
+				filter: grayscale(0);
+			}
+			.delimiter {
+				margin: 20px 15% 15px;
+				height: 1px;
+			}
+			.partner-desc {
+				max-height: 80px;
+			}
+		}
+		&:last-child {
+			border-right: 1px solid $glCLightGrey;
+		}
+	}
+}
+
+.gl-gallery {
+	background-color: $glCLightGrey;
+	padding-top: 80px;
+	padding-bottom: 90px;
+	@include respond-custom(320px, 400px) {
+		padding-top: 30px;
+		padding-bottom: 45px;
+	}
+}
+
+.gl-map {
+	padding-top: 40px;
+	@include respond-custom(320px, 400px) {
+		padding-top: 30px;
+	}
+}
