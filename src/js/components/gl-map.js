@@ -74,7 +74,7 @@ $script('https://maps.googleapis.com/maps/api/js?key=AIzaSyCWgWiXe4fdVDjYj6-APt8
 	// 	this.setMap(map);
 	// };
 
-	$.get("https://google.com/", function(data) {
+	$.get("/", function(data) {
 
 		let response = [
 			{

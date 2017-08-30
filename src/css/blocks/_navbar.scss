@@ -250,15 +250,18 @@
 				}
 				.controls-minus {
 					border-right: none;
+					border-radius: 3px 0 0 3px;
 				}
 				.item-quantity {
 					border-left: none;
 					border-right: none;
 					margin-left: -6px;
+					border-radius: 0;
 				}
 				.controls-plus {
 					border-left: none;
 					margin-left: -6px;
+					border-radius: 0 3px 3px 0;
 				}
 				.item-delete {
 					margin-left: 20px;
