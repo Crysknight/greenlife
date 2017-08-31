@@ -1,5 +1,10 @@
 import order from './order';
 import { orderChanged } from './order';
+import svgPlus from '../../img/plus.svg';
+import svgMinus from '../../img/minus.svg';
+
+// Container of order widget
+let orderInNavbar = $('.gl-your-order');
 
 // Function to create white spaces in large numbers.
 let indentPrice = (price) => {
@@ -21,16 +26,20 @@ let minusQuantity = (id) => {
 	let item = order[id];
 	if (item.quantity > 1) {
 		item.quantity--;
+		let scrollTop = $('.order-items').scrollTop();
 		// Trigger rerender of the widget
 		orderInNavbar.trigger(orderChanged);
+		$('.order-items').scrollTop(scrollTop);
 	}
 };
 
 let plusQuantity = (id) => {
 	let item = order[id];
 	item.quantity++;
+	let scrollTop = $('.order-items').scrollTop();
 	// Trigger rerender of the widget
 	orderInNavbar.trigger(orderChanged);
+	$('.order-items').scrollTop(scrollTop);
 };
 
 let deleteItem = (id) => {
@@ -46,12 +55,11 @@ let deleteItem = (id) => {
 let controlDelivery = (id) => {
 	let item = order[id];
 	item.delivery = !item.delivery;
+	let scrollTop = $('.order-items').scrollTop();
 	// Trigger rerender of the widget
 	orderInNavbar.trigger(orderChanged);
+	$('.order-items').scrollTop(scrollTop);
 };
-
-// Container of order widget
-let orderInNavbar = $('.gl-your-order');
 
 /* =================================================================================================== */
 /* < MOCKER > */
@@ -82,8 +90,6 @@ let mockOrder = window.__gl_mockOrder = function() {
 };
 
 $('.gl-first-screen h1').css({ "cursor": "pointer" }).click(mockOrder);
-
-$('.gl-your-order-content').append($('<p>Нажми на заголовок "Гринлайф"</p>').css({ "color": "#f9ad5b", "margin": "15px 0" }));
 /* =================================================================================================== */
 /* < /MOCKER > */
 /* =================================================================================================== */
@@ -105,7 +111,9 @@ orderInNavbar.on(orderChanged.type, function() {
 		let deliveryPriceSum = 0;
 
 		let orderDisplay = `
+			<div class="close-button"></div>
 			<div class="gl-order">
+				<div class="order-items">
 		`;
 
 		for (let orderItemNumber in order) {
@@ -123,30 +131,30 @@ orderInNavbar.on(orderChanged.type, function() {
 			}
 
 			orderDisplay += `
-				<div class="order-item" id="order_item_${orderItemNumber}">
-					<div class="item-title">
-						${orderItem.name}
-					</div>
-					<div class="item-price-controls">
-						<div class="item-price">
-							<span class="price-number">${price} Руб.</span>
-							<span class="price-comment">В месяц</span>
+					<div class="order-item" id="order_item_${orderItemNumber}">
+						<div class="item-title">
+							${orderItem.name}
 						</div>
-						<div class="item-controls">
-							<button class="controls-minus">&minus;</button>
-							<span class="item-quantity">${orderItem.quantity}</span>
-							<button class="controls-plus">&plus;</button>
-							<button class="item-delete">&times;</button>
+						<div class="item-price-controls">
+							<div class="item-price">
+								<span class="price-number">${price} Руб.</span>
+								<span class="price-comment">В месяц</span>
+							</div>
+							<div class="item-controls">
+								<button class="controls-minus"><img src="${svgMinus}"></button>
+								<div class="item-quantity"><span>${orderItem.quantity}</span></div>
+								<button class="controls-plus"><img src="${svgPlus}"></button>
+								<button class="item-delete"><img src="${svgPlus}"></button>
+							</div>
 						</div>
-					</div>
-					<hr />
-					<div class="item-additional">
-						<p>Выбранные дополнительные опции:</p>
+						<hr />
+						<div class="item-additional">
+							<p>Выбранные дополнительные опции:</p>
 			`;
 
 			for (let additional of orderItem.additional) {
 				orderDisplay += `
-						<span>${additional.name} (${additional.quantity}), </span>
+							<span>${additional.name} (${additional.quantity}), </span>
 				`;
 			}
 
@@ -155,36 +163,37 @@ orderInNavbar.on(orderChanged.type, function() {
 			}
 
 			orderDisplay += `
-					</div>
-					<hr />
-					<div class="item-delivery">
-						<div class="${orderItem.delivery ? 'delivery-checkbox checked' : 'delivery-checkbox'}"></div>
-						<div class="delivery-info">
-							<div class="info-title">Доставить эту бытовку</div>
-							<p>Оплата за доставку и возврат вносится единовременно и составляет 14000 руб. за бытовку</p>
+						</div>
+						<hr />
+						<div class="item-delivery">
+							<div class="${orderItem.delivery ? 'delivery-checkbox checked' : 'delivery-checkbox'}"></div>
+							<div class="delivery-info">
+								<div class="info-title">Доставить эту бытовку</div>
+								<p>Оплата за доставку и возврат вносится единовременно и составляет 14000 руб. за бытовку</p>
+							</div>
+						</div>
+						<hr />
+						<div class="item-sum">
+							<div>
+								<span class="price-number">${price} Руб.</span>
+								<span class="price-comment">В месяц</span>
+							</div>
+							${orderItem.delivery ? `
+							<div>&plus;</div>
+							<div>
+								<span class="price-number">${deliveryPrice} Руб.</span>
+								<span class="price-comment">За доставку</span>
+							</div>
+							` : ''}
 						</div>
 					</div>
-					<hr />
-					<div class="item-sum">
-						<div>
-							<span class="price-number">${price} Руб.</span>
-							<span class="price-comment">В месяц</span>
-						</div>
-						${orderItem.delivery ? `
-						<div>&plus;</div>
-						<div>
-							<span class="price-number">${deliveryPrice} Руб.</span>
-							<span class="price-comment">За доставку</span>
-						</div>
-						` : ''}
-					</div>
-				</div>
 			`;
 		}
 
 		priceSum = indentPrice(priceSum);
 
 		orderDisplay += `
+				</div>
 				<div class="order-sum">
 					<div class="sum-title">Итого к оплате:</div>
 					<div class="prices">
@@ -212,6 +221,10 @@ orderInNavbar.on(orderChanged.type, function() {
 		`;
 
 		$(this).find('.gl-your-order-content').html(orderDisplay);
+
+		$(this).find('.close-button').click(function() {
+			orderInNavbar.find('.nav-link').dropdown('toggle');
+		});
 
 		$(this).find('.controls-minus').click(function(event) {
 			event.stopPropagation();
@@ -249,4 +262,29 @@ orderInNavbar.on(orderChanged.type, function() {
 
 	}
 
+});
+
+orderInNavbar.on('shown.bs.dropdown', function(event) {
+	if ($(this).hasClass('order-added')) {
+		$(this).find('.gl-your-order-content').animate({
+			right: 0
+		}, 200);
+		$('body').css({ 'overflow-y': 'hidden' });
+	}
+});
+
+orderInNavbar.on('hide.bs.dropdown', function(event) {
+	if ($(this).hasClass('order-added')) {
+		let dropdown = $(this).find('.dropdown-menu');
+		dropdown.css({ display: 'block' });
+		$(this).find('.gl-your-order-content').animate({
+			right: -450
+		}, {
+			duration: 200,
+			complete: function() {
+				dropdown.removeAttr('style');
+			}
+		});
+		$('body').css({ 'overflow-y': 'auto' });
+	}
 });

@@ -1,6 +1,6 @@
 .gl-navbar {
 
-	position: absolute;
+	position: fixed;
 	top: 0;
 	width: 100%;
 	box-sizing: border-box;
@@ -44,14 +44,14 @@
 		}
 	}
 	.nav-item {
+		&:hover {
+			background-color: $glCGrey;
+		}
 		.nav-link, .gl-phone {
 			font-family: $glFRegular;
 			font-size: 11px;
 			padding: 15px;
 			cursor: pointer;
-			&:hover {
-				background-color: $glCGrey;
-			}
 			img {
 				display: inline-block;
 				width: 10px;
@@ -180,27 +180,93 @@
 				margin-bottom: 15px;
 			}
 		}
+		&.order-added .dropdown-menu {
+			background-color: rgba(0, 0, 0, 0);
+			transition: all 0.3s;
+			font-size: 16px;
+			html.mobile & {
+				padding-top: 0;
+				padding-bottom: 0;
+				margin: 0;
+			}
+		}
 		&.show.order-added .dropdown-menu {
 			height: auto;
-			width: 450px;
-			background-color: $glCLightLightGrey;
+			width: 100vw;
 			padding: 0;
-			font-size: 16px;
-			border: 1px solid $glCGrey;
-			box-shadow: 0 1px 2px $glCGrey;
+			background-color: rgba(0, 0, 0, 0.8);
+			justify-content: flex-end;
+			html.mobile & {
+				padding-top: 0;
+				padding-bottom: 0;
+				margin: 0;
+			}
 			@include respond-to(xs) {
 				width: 100%;
 				margin-bottom: 15px;
-			}
-			@include respond-custom(320px, 520px) {
-				font-size: 12px;
 			}
 		}
 		.gl-your-order-content {
 			color: $glCTextGrey;
 		}
 		&.order-added .gl-your-order-content {
+			background-color: $glCLightLightGrey;
+			height: calc(100vh - 44px);
+			overflow: hidden;
 			color: $glCBlack;
+			width: 450px;
+			position: relative;
+			right: -450px;
+			html.mobile & {
+				position: fixed;
+				height: 100vh;
+				width: 100vw;
+				right: -100vw;
+				top: 0;
+				.close-button {
+					display: block;
+					position: absolute;
+					height: 20px;
+					width: 20px;
+					top: 8px;
+					right: 8px;
+					float: right;
+					background-color: $glCGreen;
+					border-radius: 3px;
+					&:before, &:after {
+						border-radius: 3px;
+						top: 9px;
+						left: 1px;
+						width: 18px;
+						height: 2px;
+						background-color: $glCWhite;
+						position: absolute;
+						display: inline-block;
+						content: '';
+					}
+					&:before {
+						transform: rotate(45deg);
+					}
+					&:after {
+						transform: rotate(-45deg);
+						top: 9px;
+					}
+				}
+				.order-items {
+					padding-top: 30px;
+					height: calc(100vh - 220px);
+				}
+			}
+		}
+		.close-button {
+			display: none;
+		}
+		.order-items {
+			padding: 1px;
+			padding-bottom: 14px;
+			box-sizing: border-box;
+			height: calc(100vh - 343px);
+			overflow: auto;
 		}
 		.order-item {
 			margin: 18px;
@@ -225,8 +291,8 @@
 				display: inline-block;
 			}
 			.item-controls {
-				display: inline-block;
-				button, span {
+				display: flex;
+				button, div {
 					display: inline-flex;
 					align-items: center;
 					justify-content: center;
@@ -244,9 +310,24 @@
 						width: 20px;
 						font-size: 11px;
 					}
+					span {
+						font-family: $glFMedium;
+					}
+					img {
+						display: inline-block;
+						width: 11px;
+						height: 11px;
+						@include respond-custom(320px, 520px) {
+							width: 8px;
+							height: 8px;
+						}
+					}
 				}
 				button {
 					cursor: pointer;
+					&:hover {
+						background-color: $glCAuxGrey;
+					}
 				}
 				.controls-minus {
 					border-right: none;
@@ -255,18 +336,19 @@
 				.item-quantity {
 					border-left: none;
 					border-right: none;
-					margin-left: -6px;
 					border-radius: 0;
 				}
 				.controls-plus {
 					border-left: none;
-					margin-left: -6px;
 					border-radius: 0 3px 3px 0;
 				}
 				.item-delete {
 					margin-left: 20px;
 					@include respond-custom(320px, 520px) {
 						margin-left: 0;
+					}
+					img {
+						transform: rotate(45deg);
 					}
 				}
 			}
@@ -325,7 +407,6 @@
 			}
 		}
 		.order-sum {
-			margin-top: 30px;
 			padding: 23px 18px;
 			background-color: $glCGreen;
 			color: $glCWhite;
@@ -359,7 +440,11 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			html.mobile & {
+				padding: 7px 0;
+			}
 			.gl-section-button {
+				display: block;
 				float: none;
 				background-color: transparent;
 				cursor: pointer;

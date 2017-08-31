@@ -47,6 +47,12 @@
 		}
 	}
 
+	.gl-sitemap {
+		html.mobile & {
+			display: none;
+		}
+	}
+
 	.footer-menu-title {
 		font-family: $glFBold;
 		font-size: 12px;

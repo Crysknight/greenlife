@@ -1,5 +1,6 @@
 .gl-first-screen {
-	height: 100vh;
+	height: calc(100vh - 44px);
+	margin-top: 44px;
 	background-color: #201;
 	background-image: url('../img/bg.jpg');
 	background-size: cover;
@@ -57,13 +58,7 @@
 		color: $glCBlack;
 		height: 240px;
 		@include respond-to(xs) {
-			height: 210px;
-		}
-		@include respond-custom(401px, 520px) {
-			height: 250px;
-		}
-		@include respond-custom(320px, 400px) {
-			height: 220px;
+			height: auto;
 		}
 		.type-bg {
 			margin: -25px;
@@ -194,10 +189,11 @@
 .gl-racks-feats {
 	padding-top: 600px;
 	padding-bottom: 90px;
-	background-image: url('../img/racks-feats-bg.png'), $glXGreyGradient;
-	background-repeat: no-repeat, repeat;
-	background-size: 100% auto, cover;
+	background-image: url('../img/racks-feats-bg.png');
+	background-repeat: no-repeat;
+	background-size: 100% auto;
 	background-position: top center;
+	background-color: $glCBlack;
 	color: $glCWhite;
 	@include respond-to(sm) {
 		padding-top: 500px;
@@ -230,7 +226,7 @@
 	.racks-feat {
 		padding-top: 20px;
 		.ml-auto, .mr-auto {
-			border-bottom: 1px solid $glCWhite;
+			border-bottom: 1px solid transparentize($glCWhite, 0.75);
 			padding-bottom: 20px;
 		}
 		.feat-title {
@@ -313,13 +309,7 @@
 		transition: all 0.3s;
 		border: 1px solid $glCLightGrey;
 		border-right: none;
-		@include respond-to(md) {
-			padding: 65px 20px 55px;
-		}
-		@include respond-to(sm) {
-			padding: 65px 20px 55px;
-		}
-		@include respond-to(xs) {
+		html.mobile & {
 			padding: 65px 20px 55px;
 		}
 		.partner-logo, .delimiter, .partner-desc {
@@ -332,15 +322,7 @@
 			filter: grayscale(1);
 			transition: all 0.3s;
 			margin: 0 auto;
-			@include respond-to(md) {
-				height: 55px;
-				filter: none;
-			}
-			@include respond-to(sm) {
-				height: 55px;
-				filter: none;
-			}
-			@include respond-to(xs) {
+			html.mobile & {
 				height: 55px;
 				filter: none;
 			}
@@ -352,15 +334,7 @@
 			margin: 0 15%;
 			display: block;
 			transition: all 0.3s;
-			@include respond-to(md) {
-				height: 1px;
-				margin: 20px 15% 15px;
-			}
-			@include respond-to(sm) {
-				height: 1px;
-				margin: 20px 15% 15px;
-			}
-			@include respond-to(xs) {
+			html.mobile & {
 				height: 1px;
 				margin: 20px 15% 15px;
 			}
@@ -373,15 +347,7 @@
 			overflow: hidden;
 			transition: all 0.3s;
 			font-size: 15px;
-			@include respond-to(md) {
-				max-height: 80px;
-				font-size: 14px;
-			}
-			@include respond-to(sm) {
-				max-height: 80px;
-				font-size: 14px;
-			}
-			@include respond-to(xs) {
+			html.mobile & {
 				max-height: 80px;
 				font-size: 14px;
 			}
