@@ -7,7 +7,27 @@
 	background-position: center center;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	position: relative;
+	overflow: hidden;
+	* {
+		z-index: 60;
+	}
+	video, .video-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		min-width: 100%;
+		min-height: calc(100vh - 44px);
+		z-index: 50;
+		html.mobile &, html.tablet & {
+			display: none;
+		}
+	}
+	.video-overlay {
+		z-index: 55;
+		background-color: transparentize($glCBlack, 0.25);
+	}
 	h1 {
 		margin-bottom: 35px;
 	}

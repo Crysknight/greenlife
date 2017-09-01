@@ -67,6 +67,15 @@ module.exports = {
 						outputPath: 'fonts/'
 					}
 				}
+			},
+			{
+				test: /\.mp4$/,
+				use: {
+					loader: 'file-loader',
+					options: {
+						outputPath: 'videos/'
+					}
+				}
 			}
 		]
 	},
