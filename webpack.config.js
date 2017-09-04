@@ -40,17 +40,22 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.html$/,
+				test: /\.(html|ejs)$/,
 				use: ['html-loader']
 			},
 			{
-				test: /\.(jpe?g|png|svg|gif)$/,
+				test: /\.ejs$/,
+				include: path.resolve(__dirname, 'src/chunks'),
+				use: ['ejs-render-loader']
+			},
+			{
+				test: /\.(jpe?g|png|svg|gif|mp4)$/,
 				include: path.resolve(__dirname, 'src/img'),
 				use: [
 					{
 						loader: 'file-loader',
 						options: {
-							name: '[hash:6].[ext]',
+							name: '[name].[ext]',
 							outputPath: 'img/'
 							// publicPath: 'img/'
 						}
@@ -65,15 +70,6 @@ module.exports = {
 					loader: 'file-loader',
 					options: {
 						outputPath: 'fonts/'
-					}
-				}
-			},
-			{
-				test: /\.mp4$/,
-				use: {
-					loader: 'file-loader',
-					options: {
-						outputPath: 'videos/'
 					}
 				}
 			}

@@ -9,112 +9,12 @@
 
 
 
-	<nav class="navbar navbar-expand-md gl-navbar">
-		<a href="#" class="navbar-brand">Гринлайф</a>
-		<a href="tel:74956486958" class="navbar-brand mobile-phone"><img src="<%= require('./img/call.svg') %>" /></a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#glNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon">
-	    	<div class="toggler-icon-bar"></div>
-	    	<div class="toggler-icon-bar"></div>
-	    	<div class="toggler-icon-bar"></div>
-	    </span>
-	  </button>
-	  <div class="collapse navbar-collapse" id="glNavbar">
-	  	<ul class="navbar-nav mr-auto left-part">
-	      <li class="nav-item dropdown">
-	        <span 
-	        	class="nav-link" 
-						data-toggle="dropdown"
-						role="button"
-						aria-haspopup="true"
-						aria-expanded="false"
-	        >Бытовки</span>
-	        <div class="dropdown-menu">
-	        	<a class="dropdown-item" href="#">Склад</a>
-	        	<a class="dropdown-item" href="#">Жилье</a>
-	        	<a class="dropdown-item" href="#">Столовая</a>
-	        	<a class="dropdown-item" href="#">Прорабская</a>
-	        	<a class="dropdown-item" href="#">Раздевалка</a>
-	        	<a class="dropdown-item" href="#">Пост охраны</a>
-	        </div>
-	      </li>
-	      <li class="nav-item dropdown">
-	        <span 
-	        	class="nav-link"
-	        	data-toggle="dropdown"
-	        	role="button"
-	        	aria-haspopus="true"
-	        	aria-expanded="false"
-	        >Услуги</span>
-	        <div class="dropdown-menu">
-	        	<span class="dropdown-item dropdown-section-title">Доставка и обслуживание</span>
-	        	<a href="#" class="dropdown-item dropdown-section-item">Доставка</a>
-	        	<a href="#" class="dropdown-item dropdown-section-item">Демонтаж</a>
-	        	<div class="dropdown-divider"></div>
-	        	<span class="dropdown-item dropdown-section-title">Дополнительные услуги</span>
-	        	<a href="#" class="dropdown-item dropdown-section-item">Мобильные казармы</a>
-	        	<a href="#" class="dropdown-item dropdown-section-item">Вахтовый городок</a>
-	        </div>
-	      </li>
-	  	</ul>
-	  	<ul class="navbar-nav right-part">
-	      <li class="nav-item align-items-center gl-phone-item">
-	        <div class="nav-link gl-phone"><img src="<%= require('./img/call.svg') %>" />+7 (495) 648-69-58</div>
-	      </li>
-			  <li class="nav-item dropdown gl-client-info">
-			    <span 
-			    	class="nav-link dropdown-toggle" 
-			    	data-toggle="dropdown"
-			    	role="button" 
-			    	aria-haspopup="true" 
-			    	aria-expanded="false"
-			    ><img src="<%= require('./img/people.svg') %>" />Клиентский сервис</span>
-			    <div class="dropdown-menu dropdown-menu-right">
-			      <div class="dropdown-item gl-contact-info">
-			      	<div class="dropdown-text">
-			      		<div class="dropdown-text-left">
-			      			<span class="dropdown-text-label">Офис в Химках:</span>
-			      			<span>Ленинский проспект, д. 1, к. 1</span>
-			      		</div>
-			      		<div class="dropdown-text-right">
-			      			<span class="dropdown-text-label">E-Mail</span>
-			      			<span><a href="mailto:5081238@mail.ru">5081238@mail.ru</a></span>
-			      		</div>
-			      	</div>
-			      </div>
-			      <div class="dropdown-divider"></div>
-			      <a class="dropdown-item gl-load-co" href="#"><img src="<%= require('./img/download.svg') %>" />Загрузить наше КП</a>
-			      <div class="dropdown-divider"></div>
-			      <a class="dropdown-item" href="#">О компании</a>
-			      <a class="dropdown-item" href="#">Условия аренды бытовок</a>
-			      <a class="dropdown-item" href="#">Фотогалерея</a>
-			      <a class="dropdown-item" href="#">Пресс-центр</a>
-			      <a class="dropdown-item" href="#">Контакты</a>
-			    </div>
-			  </li>
-			  <li class="nav-item dropdown gl-your-order">
-			  	<span
-			  		class="nav-link"
-						data-toggle="dropdown"
-						data-flip="true"
-						role="button"
-						aria-haspopup="true"
-						aria-expanded="false"
-			  	><img src="<%= require('./img/bag.svg') %>" />Ваш заказ</span>
-			  	<div class="dropdown-menu dropdown-menu-right">
-			  		<div class="gl-your-order-content">
-							Вы еще ничего не добавили в заказ
-			  		</div>
-			  	</div>
-			  </li>
-	  	</ul>
-	  </div>
-	</nav>
+	require('./chunks/navbar.ejs')
 
 
 
 	<div class="gl-first-screen">
-		<video src="<%= require('./img/head_video.mp4') %>" autoplay loop muted></video>
+		<video src="./img/head_video.mp4" autoplay loop muted></video>
 		<div class="video-overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -129,7 +29,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-3 scroll-down"><div class="scroll-down-inner"><img src="<%= require('./img/mouse.svg') %>" />Крутите вниз, чтобы узнать больше</div></div>
+				<div class="col-3 scroll-down"><div class="scroll-down-inner"><img src="./img/mouse.svg" />Крутите вниз, чтобы узнать больше</div></div>
 			</div>
 		</div>
 	</div>
@@ -143,56 +43,56 @@
 					<div class="racks-slider gl-slider">
 						<div class="racks-slide slide">
 							<div class="racks-slide-inner">
-								<div class="rack-image"><img src="<%= require('./img/rack-slide-1.png') %>" alt=""></div>
+								<div class="rack-image"><img src="./img/rack-slide-1.png" alt=""></div>
 								<div class="rack-name">Склад</div>
 								<div class="rack-price">От 7500 руб</div>
 							</div>
 						</div>
 						<div class="racks-slide slide">
 							<div class="racks-slide-inner">
-								<div class="rack-image"><img src="<%= require('./img/rack-slide-2.png') %>" alt=""></div>
+								<div class="rack-image"><img src="./img/rack-slide-2.png" alt=""></div>
 								<div class="rack-name">Жилье</div>
 								<div class="rack-price">От 7500 руб</div>
 							</div>
 						</div>
 						<div class="racks-slide slide">
 							<div class="racks-slide-inner">
-								<div class="rack-image"><img src="<%= require('./img/rack-slide-3.png') %>" alt=""></div>
+								<div class="rack-image"><img src="./img/rack-slide-3.png" alt=""></div>
 								<div class="rack-name">Раздевалка</div>
 								<div class="rack-price">От 7500 руб</div>
 							</div>
 						</div>
 						<div class="racks-slide slide">
 							<div class="racks-slide-inner">
-								<div class="rack-image"><img src="<%= require('./img/rack-slide-4.png') %>" alt=""></div>
+								<div class="rack-image"><img src="./img/rack-slide-4.png" alt=""></div>
 								<div class="rack-name">Прорабская</div>
 								<div class="rack-price">От 7500 руб</div>
 							</div>
 						</div>
 						<div class="racks-slide slide">
 							<div class="racks-slide-inner">
-								<div class="rack-image"><img src="<%= require('./img/rack-slide-1.png') %>" alt=""></div>
+								<div class="rack-image"><img src="./img/rack-slide-1.png" alt=""></div>
 								<div class="rack-name">Склад</div>
 								<div class="rack-price">От 7500 руб</div>
 							</div>
 						</div>
 						<div class="racks-slide slide">
 							<div class="racks-slide-inner">
-								<div class="rack-image"><img src="<%= require('./img/rack-slide-2.png') %>" alt=""></div>
+								<div class="rack-image"><img src="./img/rack-slide-2.png" alt=""></div>
 								<div class="rack-name">Жилье</div>
 								<div class="rack-price">От 7500 руб</div>
 							</div>
 						</div>
 						<div class="racks-slide slide">
 							<div class="racks-slide-inner">
-								<div class="rack-image"><img src="<%= require('./img/rack-slide-3.png') %>" alt=""></div>
+								<div class="rack-image"><img src="./img/rack-slide-3.png" alt=""></div>
 								<div class="rack-name">Раздевалка</div>
 								<div class="rack-price">От 7500 руб</div>
 							</div>
 						</div>
 						<div class="racks-slide slide">
 							<div class="racks-slide-inner">
-								<div class="rack-image"><img src="<%= require('./img/rack-slide-4.png') %>" alt=""></div>
+								<div class="rack-image"><img src="./img/rack-slide-4.png" alt=""></div>
 								<div class="rack-name">Прорабская</div>
 								<div class="rack-price">От 7500 руб</div>
 							</div>
@@ -219,7 +119,7 @@
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<a href="#" class="rack-type">
 						<div class="type-bg">
-							<img src="<%= require('./img/racks-info-bg.jpg') %>" alt="">
+							<img src="./img/racks-info-bg.jpg" alt="">
 						</div>
 						<div class="type-bg-cover"></div>
 						<div class="type-number">01</div>
@@ -230,7 +130,7 @@
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<a href="#" class="rack-type">
 						<div class="type-bg">
-							<img src="<%= require('./img/racks-info-bg-2.jpg') %>" alt="">
+							<img src="./img/racks-info-bg-2.jpg" alt="">
 						</div>
 						<div class="type-bg-cover"></div>
 						<div class="type-number">02</div>
@@ -241,7 +141,7 @@
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<a href="#" class="rack-type">
 						<div class="type-bg">
-							<img src="<%= require('./img/racks-info-bg.jpg') %>" alt="">
+							<img src="./img/racks-info-bg.jpg" alt="">
 						</div>
 						<div class="type-bg-cover"></div>
 						<div class="type-number">03</div>
@@ -252,7 +152,7 @@
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<a href="#" class="rack-type">
 						<div class="type-bg">
-							<img src="<%= require('./img/racks-info-bg.jpg') %>" alt="">
+							<img src="./img/racks-info-bg.jpg" alt="">
 						</div>
 						<div class="type-bg-cover"></div>
 						<div class="type-number">04</div>
@@ -263,7 +163,7 @@
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<a href="#" class="rack-type">
 						<div class="type-bg">
-							<img src="<%= require('./img/racks-info-bg.jpg') %>" alt="">
+							<img src="./img/racks-info-bg.jpg" alt="">
 						</div>
 						<div class="type-bg-cover"></div>
 						<div class="type-number">05</div>
@@ -274,7 +174,7 @@
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<a href="#" class="rack-type">
 						<div class="type-bg">
-							<img src="<%= require('./img/racks-info-bg.jpg') %>" alt="">
+							<img src="./img/racks-info-bg.jpg" alt="">
 						</div>
 						<div class="type-bg-cover"></div>
 						<div class="type-number">06</div>
@@ -338,7 +238,7 @@
 			<div class="row racks-feat">
 				<div class="col-lg-3 col-md-4 col-sm-4 col-5 ml-auto">
 					<div class="feat-title">
-						<img src="<%= require('./img/feats-1.svg') %>" alt="" class="feat-title-icon">
+						<img src="./img/feats-1.svg" alt="" class="feat-title-icon">
 						<div class="feat-title-title">Выгодно</div>
 					</div>
 				</div>
@@ -349,7 +249,7 @@
 			<div class="row racks-feat">
 				<div class="col-lg-3 col-md-4 col-sm-4 col-5 ml-auto">
 					<div class="feat-title">
-						<img src="<%= require('./img/feats-2.svg') %>" alt="" class="feat-title-icon">
+						<img src="./img/feats-2.svg" alt="" class="feat-title-icon">
 						<div class="feat-title-title">Экологично</div>
 					</div>
 				</div>
@@ -360,7 +260,7 @@
 			<div class="row racks-feat">
 				<div class="col-lg-3 col-md-4 col-sm-4 col-5 ml-auto">
 					<div class="feat-title">
-						<img src="<%= require('./img/feats-3.svg') %>" alt="" class="feat-title-icon">
+						<img src="./img/feats-3.svg" alt="" class="feat-title-icon">
 						<div class="feat-title-title">Комфортно</div>
 					</div>
 				</div>
@@ -371,7 +271,7 @@
 			<div class="row racks-feat">
 				<div class="col-lg-3 col-md-4 col-sm-4 col-5 ml-auto">
 					<div class="feat-title">
-						<img src="<%= require('./img/feats-4.svg') %>" alt="" class="feat-title-icon">
+						<img src="./img/feats-4.svg" alt="" class="feat-title-icon">
 						<div class="feat-title-title">Тепло</div>
 					</div>
 				</div>
@@ -382,7 +282,7 @@
 			<div class="row racks-feat">
 				<div class="col-lg-3 col-md-4 col-sm-4 col-5 ml-auto">
 					<div class="feat-title">
-						<img src="<%= require('./img/feats-5.svg') %>" alt="" class="feat-title-icon">
+						<img src="./img/feats-5.svg" alt="" class="feat-title-icon">
 						<div class="feat-title-title">Оперативно</div>
 					</div>
 				</div>
@@ -393,7 +293,7 @@
 			<div class="row racks-feat">
 				<div class="col-lg-3 col-md-4 col-sm-4 col-5 ml-auto">
 					<div class="feat-title">
-						<img src="<%= require('./img/feats-6.svg') %>" alt="" class="feat-title-icon">
+						<img src="./img/feats-6.svg" alt="" class="feat-title-icon">
 						<div class="feat-title-title">Компактно</div>
 					</div>
 				</div>
@@ -404,7 +304,7 @@
 			<div class="row racks-feat">
 				<div class="col-lg-3 col-md-4 col-sm-4 col-5 ml-auto">
 					<div class="feat-title">
-						<img src="<%= require('./img/feats-7.svg') %>" alt="" class="feat-title-icon">
+						<img src="./img/feats-7.svg" alt="" class="feat-title-icon">
 						<div class="feat-title-title">Быстро</div>
 					</div>
 				</div>
@@ -415,7 +315,7 @@
 			<div class="row racks-feat">
 				<div class="col-lg-3 col-md-4 col-sm-4 col-5 ml-auto">
 					<div class="feat-title">
-						<img src="<%= require('./img/feats-8.svg') %>" alt="" class="feat-title-icon">
+						<img src="./img/feats-8.svg" alt="" class="feat-title-icon">
 						<div class="feat-title-title">Два размера</div>
 					</div>
 				</div>
@@ -448,22 +348,22 @@
 			</div>
 			<div class="row">
 				<a href="#" class="col-lg-3 col-md-6 col-sm-6 partner">
-					<img src="<%= require('./img/partner-logo-1.png') %>" alt="" class="partner-logo">
+					<img src="./img/partner-logo-1.png" alt="" class="partner-logo">
 					<div class="delimiter"></div>
 					<p class="partner-desc">Рекомендательное письмо от компании Абада</p>
 				</a>
 				<a href="#" class="col-lg-3 col-md-6 col-sm-6 partner">
-					<img src="<%= require('./img/partner-logo-2.png') %>" alt="" class="partner-logo">
+					<img src="./img/partner-logo-2.png" alt="" class="partner-logo">
 					<div class="delimiter"></div>
 					<p class="partner-desc">Рекомендательное письмо от группы компаний ПИК</p>
 				</a>
 				<a href="#" class="col-lg-3 col-md-6 col-sm-6 partner">
-					<img src="<%= require('./img/partner-logo-3.png') %>" alt="" class="partner-logo">
+					<img src="./img/partner-logo-3.png" alt="" class="partner-logo">
 					<div class="delimiter"></div>
 					<p class="partner-desc">Рекомендательное письмо от компании ПромСтройСервис</p>
 				</a>
 				<a href="#" class="col-lg-3 col-md-6 col-sm-6 partner">
-					<img src="<%= require('./img/partner-logo-4.png') %>" alt="" class="partner-logo">
+					<img src="./img/partner-logo-4.png" alt="" class="partner-logo">
 					<div class="delimiter"></div>
 					<p class="partner-desc">Рекомендательное письмо от компании ООО "РусСтройГруп"</p>
 				</a>
@@ -484,12 +384,12 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="gallery-slider gl-slider">
-						<div class="gallery-slide slide"><img src="<%= require('./img/gallery-photo-1.jpg') %>" alt=""></div>
-						<div class="gallery-slide slide"><img src="<%= require('./img/gallery-photo-2.jpg') %>" alt=""></div>
-						<div class="gallery-slide slide"><img src="<%= require('./img/gallery-photo-3.jpg') %>" alt=""></div>
-						<div class="gallery-slide slide"><img src="<%= require('./img/gallery-photo-1.jpg') %>" alt=""></div>
-						<div class="gallery-slide slide"><img src="<%= require('./img/gallery-photo-2.jpg') %>" alt=""></div>
-						<div class="gallery-slide slide"><img src="<%= require('./img/gallery-photo-3.jpg') %>" alt=""></div>
+						<div class="gallery-slide slide"><img src="./img/gallery-photo-1.jpg" alt=""></div>
+						<div class="gallery-slide slide"><img src="./img/gallery-photo-2.jpg" alt=""></div>
+						<div class="gallery-slide slide"><img src="./img/gallery-photo-3.jpg" alt=""></div>
+						<div class="gallery-slide slide"><img src="./img/gallery-photo-1.jpg" alt=""></div>
+						<div class="gallery-slide slide"><img src="./img/gallery-photo-2.jpg" alt=""></div>
+						<div class="gallery-slide slide"><img src="./img/gallery-photo-3.jpg" alt=""></div>
 					</div>
 				</div>
 			</div>
