@@ -11,6 +11,7 @@
 
 // Pages
 @import './pages/index';
+@import './pages/catalogue';
 
 body {
 	line-height: 1.35;
@@ -19,6 +20,7 @@ body {
 	@include respond-custom(320px, 400px) {
 		font-size: 14px;
 	}
+	overflow-x: hidden;
 }
 
 h1 {
@@ -31,7 +33,7 @@ h1 {
 	margin-bottom: 35px;
 }
 
-p.gl-section-primary {
+p.gl-section-primary, h1.gl-section-primary {
 	font-family: $glFRegular;
 	font-size: 50px;
 	line-height: 1;
@@ -106,6 +108,10 @@ h2.gl-section-title {
 
 .gl-f-c-green {
 	color: $glCGreen;
+}
+
+.gl-f-c-grey {
+	color: $glCTextGrey;
 }
 
 .gl-f-reg {

@@ -40,17 +40,20 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(html|ejs)$/,
-				use: ['html-loader']
-			},
-			{
-				test: /\.ejs$/,
-				include: path.resolve(__dirname, 'src/chunks'),
-				use: ['ejs-render-loader']
+				test: /\.html$/,
+				use: {
+					loader: 'html-loader',
+					options: {
+						interpolate: true
+					}
+				}
 			},
 			{
 				test: /\.(jpe?g|png|svg|gif|mp4)$/,
-				include: path.resolve(__dirname, 'src/img'),
+				include: [
+					path.resolve(__dirname, 'src/img'),
+					path.resolve(__dirname, 'node_modules/lightbox2/dist/images')
+				],
 				use: [
 					{
 						loader: 'file-loader',
@@ -89,7 +92,12 @@ module.exports = {
 		}),
 		extractPlugin,
 		new HtmlWebpackPlugin({
-			template: 'src/index.ejs'
+			filename: 'index.html',
+			template: 'src/index.html'
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'catalogue.html',
+			template: 'src/catalogue.html'
 		}),
 		new CleanWebpackPlugin(['dist'])
 	]

@@ -1,6 +1,6 @@
-let order = [];
+const order = [];
 
-let orderChanged = $.Event('ORDER_CHANGED');
+const orderChanged = $.Event('ORDER_CHANGED');
 
 export default order;
 export { orderChanged };

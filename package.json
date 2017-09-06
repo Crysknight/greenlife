@@ -17,7 +17,6 @@
     "babel-preset-es2015": "^6.24.1",
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.4",
-    "ejs-render-loader": "^1.0.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "html-loader": "^0.4.5",
@@ -35,7 +34,9 @@
     "bootstrap": "^4.0.0-beta",
     "device.js": "^2.3.0",
     "jquery": "^3.2.1",
+    "lightbox2": "^2.9.0",
     "popper.js": "^1.11.1",
-    "slick-carousel": "^1.7.1"
+    "slick-carousel": "^1.7.1",
+    "vivus": "^0.4.2"
   }
 }

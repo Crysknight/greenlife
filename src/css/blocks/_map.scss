@@ -1,3 +1,9 @@
+@keyframes markerFlicker {
+	from { box-shadow: 0 0 0 3px transparentize($glCGreen, 0.65); }
+	50% { box-shadow: 0 0 0 5px transparentize($glCGreen, 0.85); }
+	to { box-shadow: 0 0 0 3px transparentize($glCGreen, 0.65); }
+}
+
 .gl-map {
 	.gl-google-map {
 		height: 500px;
@@ -15,6 +21,9 @@
 		background-color: $glCWhite;
 		border-radius: 50%;
 		box-sizing: border-box;
+		html.desktop &:hover {
+			animation: markerFlicker 2s infinite;
+		}
 		&.numbered {
 			color: $glCGreen;
 			font-size: 16px;
