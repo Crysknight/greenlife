@@ -23,6 +23,9 @@
 			display: none;
 		}
 	}
+	video {
+		opacity: 0;
+	}
 	.video-overlay {
 		height: calc(100vh - 44px);
 		z-index: 55;
@@ -86,6 +89,15 @@
 		.type-bg {
 			margin: -25px;
 			position: absolute;
+			video {
+				display: none;
+			}
+			html.desktop & video {
+				display: block;
+				opacity: 0;
+				position: absolute;
+				top: 0;
+			}
 		}
 		.type-bg-cover {
 			width: 100%;
@@ -144,7 +156,7 @@
 		html.desktop & {
 			border-top: 2px solid transparent;
 		}
-		@include respond-to(xs) {
+		html.mobile & {
 			max-height: 80px;
 			overflow: hidden;
 			transition: all 0.3s;
@@ -171,8 +183,10 @@
 		font-family: $glFLight;
 		margin: 20px 0;
 		position: relative;
-		bottom: -40px;
-		opacity: 0;
+		html.desktop & {
+			opacity: 0;
+			bottom: -40px;
+		}
 		@include respond-to(sm) {
 			font-size: 30px;
 		}
@@ -192,15 +206,17 @@
 	.rack-term-desc {
 		width: 85%;
 		position: relative;
-		bottom: -40px;
-		opacity: 0;
+		html.desktop & {
+			bottom: -40px;
+			opacity: 0;	
+		}
 		@include respond-to(xs) {
 			margin-bottom: 15px;
 		}
 	}
 	.rack-term-folder {
 		display: none;
-		@include respond-to(xs) {
+		html.mobile & {
 			display: inline-flex;
 			position: absolute;
 			align-items: center;
@@ -246,6 +262,9 @@
 		position: absolute;
 		top: -140px;
 		width: 100%;
+		@include respond-custom(320px, $md) {
+			top: -80px;
+		}
 	}
 	& > img {
 		position: absolute;
@@ -308,9 +327,11 @@
 		span {
 			display: block;
 			position: relative;
-			bottom: -40px;
-			opacity: 0;
 			width: 130px;
+			html.desktop & {
+				bottom: -30px;
+				opacity: 0;
+			}
 			@include respond-custom(320px, 520px) {
 				width: 75px;
 			}

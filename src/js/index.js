@@ -9,9 +9,8 @@ import '@fancyapps/fancybox/dist/jquery.fancybox.min.css';
 import '../css/index.scss';
 
 import './components/navbar';
-import './components/video';
 import './components/sliders';
-import './components/scroll-first-screen';
+import './components/first-screen';
 import './components/racks-info';
 import './components/racks-feats';
 import './components/gl-map';
@@ -19,5 +18,6 @@ import './components/order';
 import './components/order-in-navbar';
 import './components/racks-terms';
 import './components/rack-gallery';
+import './components/rack-price';
 
 device.addClasses(document.documentElement);

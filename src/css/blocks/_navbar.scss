@@ -37,6 +37,9 @@
 			float: right;
 			right: 60px;
 			top: -1px;
+			html.tablet & {
+				display: none;
+			}
 			img {
 				margin-top: -2px;
 				width: 18px;
@@ -168,6 +171,9 @@
 	.gl-your-order {
 		@include respond-to(xs) {
 			margin-bottom: 15px;
+			html.tablet & {
+				margin-bottom: 0;
+			}
 		}
 		&.show .dropdown-menu {
 			height: 70px;
@@ -175,6 +181,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			padding: 0 15px;
 			@include respond-to(xs) {
 				width: 100%;
 				margin-bottom: 15px;

@@ -39,6 +39,15 @@
 		img {
 			height: 120px;
 			margin: 0 auto;
+			@include respond-to(md) {
+				height: 85px;
+			}
+			@include respond-to(sm) {
+				height: 85px;
+			}
+			@include respond-to(xs) {
+				height: 85px;
+			}
 		}
 		.racks-slide-inner {
 			padding: 0 40px;
@@ -52,7 +61,10 @@
 				font-size: 30px;
 			}
 			@include respond-to(sm) {
-				font-size: 30px;
+				font-size: 25px;
+			}
+			@include respond-to(xs) {
+				font-size: 20px;
 			}
 		}
 		.rack-price {
@@ -91,12 +103,18 @@
 			right: -45px;
 			@include respond-to(xs) {
 				right: -10px;
+				html.ipad & {
+					right: -30px;
+				}
 			}
 		}
 		&.prev {
 			left: -45px;
 			@include respond-to(xs) {
 				left: -10px;
+				html.ipad & {
+					left: -30px;
+				}
 			}
 		}
 		@include respond-to(md) {
@@ -107,6 +125,9 @@
 		}
 		@include respond-to(xs) {
 			top: 100px;
+			html.ipad & {
+				top: 90px;
+			}
 		}
 		@include respond-custom(320px, 400px) {
 			top: 50px;

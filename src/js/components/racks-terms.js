@@ -16,7 +16,7 @@ if ($('.rack-term').length > 0) {
 			
 		}
 
-		if ($('html.mobile, html.tablet').length > 0) {
+		if ($('html.mobile').length > 0) {
 			$('.rack-term').click(function() {
 				$(this).toggleClass('unfolded');
 				$(this).find('.rack-term-folder').toggleClass('unfolded');
