@@ -82,7 +82,6 @@
 	.rack-info {
 		background-color: $glCLightGrey;
 		position: relative;
-		padding-left: 50px;
 		&:after {
 			content: '';
 			position: absolute;
@@ -125,7 +124,7 @@
 			margin-bottom: 0;
 		}
 	}
-	.rack-price-delimiter {
+	.rack-delimiter {
 		height: 1px;
 		width: 80%;
 		background-color: $glCBlack;
@@ -137,5 +136,108 @@
 	.gl-section-button {
 		float: none;
 		margin: 30px 0;
+	}
+	.rack-gallery {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		margin-bottom: -30px;
+		a {
+			display: inline-flex;
+			width: 100px;
+			height: 100px;
+			margin-right: 40px;
+			margin-bottom: 40px;
+			overflow: hidden;
+			transition: filter 0.4s;
+			cursor: pointer;
+		}
+		a:focus {
+			outline: none;
+		}
+		a:hover {
+			filter: brightness(75%);
+		}
+		a:last-child {
+			margin-right: 0;
+		}
+	}
+	.rack-info {
+		.rack-delimiter {
+			width: 100%;
+			margin: 35px 0;
+		}
+	}
+	.rack-size {
+		span {
+			width: 130px;
+		}
+		span.size {
+			font-size: 44px;
+		}
+		span.measure {
+			font-size: 22px;
+		}
+	}
+	ul, .config-list-item {
+		padding-left: 40px;
+		li, .config {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			list-style-type: none;
+			margin: 20px 0;
+			position: relative;
+			&:before {
+				content: '';
+				display: inline-block;
+				position: absolute;
+				left: -40px;
+				width: 20px;
+				height: 20px;
+				background-image: url('../img/content-list-style-image.png');
+			}
+		}
+		.config-commentary {
+			color: $glCTextGrey;
+		}
+	}
+	.add-options {
+		.option, .item-controls {
+			padding-left: 40px;
+		}
+		.option {
+			margin-top: 20px;
+			.option-inner {
+				position: relative;
+				display: flex;
+				align-items: center;
+			}
+			.option-inner:before {
+				content: '';
+				display: inline-block;
+				position: absolute;
+				left: -40px;
+				width: 20px;
+				height: 20px;
+				background-image: url('../img/additional-list-style-image.png');
+			}
+			.option-name {
+				font-family: $glFBold;
+			}
+		}
+		.item-controls {
+			margin-top: 12px;
+			margin-bottom: 20px;
+			align-items: center;
+			.controls-sum {
+				width: auto;
+				height: auto;
+				margin-left: 20px;
+				border: none;
+				font-family: $glFBold;
+			}
+		}
 	}
 }

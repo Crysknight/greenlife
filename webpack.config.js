@@ -51,8 +51,7 @@ module.exports = {
 			{
 				test: /\.(jpe?g|png|svg|gif|mp4)$/,
 				include: [
-					path.resolve(__dirname, 'src/img'),
-					path.resolve(__dirname, 'node_modules/lightbox2/dist/images')
+					path.resolve(__dirname, 'src/img')
 				],
 				use: [
 					{
@@ -86,6 +85,7 @@ module.exports = {
 			$: 'jquery',
 			jQuery: 'jquery',
 			Popper: ['popper.js', 'default'],
+			'window.jQuery': 'jquery',
 			Util: 'exports-loader?Util!bootstrap/js/dist/util',
 			Dropdown: 'exports-loader?Dropdown!bootstrap/js/dist/dropdown',
 			slick: 'slick-carousel'

@@ -290,68 +290,6 @@
 			.item-price {
 				display: inline-block;
 			}
-			.item-controls {
-				display: flex;
-				button, div {
-					display: inline-flex;
-					align-items: center;
-					justify-content: center;
-					height: 30px;
-					width: 30px;
-					background-color: transparent;
-					border: 2px solid $glCAuxGrey;
-					border-radius: 3px;
-					outline: none;
-					margin: 0;
-					padding: 0;
-					font-size: 16px;
-					@include respond-custom(320px, 520px) {
-						height: 20px;
-						width: 20px;
-						font-size: 11px;
-					}
-					span {
-						font-family: $glFMedium;
-					}
-					img {
-						display: inline-block;
-						width: 11px;
-						height: 11px;
-						@include respond-custom(320px, 520px) {
-							width: 8px;
-							height: 8px;
-						}
-					}
-				}
-				button {
-					cursor: pointer;
-					&:hover {
-						background-color: $glCAuxGrey;
-					}
-				}
-				.controls-minus {
-					border-right: none;
-					border-radius: 3px 0 0 3px;
-				}
-				.item-quantity {
-					border-left: none;
-					border-right: none;
-					border-radius: 0;
-				}
-				.controls-plus {
-					border-left: none;
-					border-radius: 0 3px 3px 0;
-				}
-				.item-delete {
-					margin-left: 20px;
-					@include respond-custom(320px, 520px) {
-						margin-left: 0;
-					}
-					img {
-						transform: rotate(45deg);
-					}
-				}
-			}
 			.item-additional {
 				p {
 					margin: 0;

@@ -1,0 +1,9 @@
+.fancybox-container {
+	.fancybox-close-small {
+		outline: none;
+		&:after {
+			outline: none;
+			background-color: $glCGrey;
+		}
+	}
+}
