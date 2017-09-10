@@ -71,7 +71,13 @@
 		&.dropdown.show .nav-link {
 			background-color: $glCGrey;
 		}
-		&.dropdown.show.gl-your-order.order-added .nav-link {
+		&.dropdown.gl-your-order {
+			transition: all 0.2s;
+			img {
+				transition: all 0.2s;
+			}
+		}
+		&.dropdown.show.gl-your-order.order-added .nav-link, &.dropdown.gl-your-order.order-just-added {
 			color: $glCWhite;
 			background-color: $glCGreen;
 			img {

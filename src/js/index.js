@@ -19,5 +19,6 @@ import './components/order-in-navbar';
 import './components/racks-terms';
 import './components/rack-gallery';
 import './components/rack-price';
+import './components/catalogue';
 
 device.addClasses(document.documentElement);

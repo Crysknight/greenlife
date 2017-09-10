@@ -140,8 +140,18 @@
 		}
 	}
 	.gl-section-button {
+		cursor: pointer;
 		float: none;
 		margin: 30px 0 90px;
+	}
+	.order-plus-icon {
+		opacity: 0;
+		transition: opacity 0.3s;
+		z-index: 500;
+		&.present {
+			position: fixed;
+			opacity: 1;
+		}
 	}
 	.rack-gallery {
 		display: flex;
@@ -209,6 +219,7 @@
 		}
 	}
 	.add-options {
+		margin-bottom: 50px;
 		.option, .item-controls {
 			padding-left: 40px;
 		}
@@ -239,15 +250,13 @@
 		}
 		.item-controls {
 			margin-top: 12px;
-			margin-bottom: 20px;
+			margin-bottom: 5px;
 			align-items: center;
-			.controls-sum {
-				width: auto;
-				height: auto;
-				margin-left: 20px;
-				border: none;
-				font-family: $glFBold;
-			}
+		}
+		.controls-sum {
+			font-family: $glFBold;
+			padding-left: 40px;
+			margin-bottom: 20px;
 		}
 	}
 }

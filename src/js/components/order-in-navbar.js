@@ -11,7 +11,12 @@ $(document).ready(function() {
 
 	// Functions to assign to controls. Names tell the story
 	let minusQuantity = (id) => {
-		let item = order[id];
+		let item;
+		for (let i = 0; i < order.length; i++) {
+			if (order[i].id === id) {
+				item = order[i];
+			}
+		}
 		if (item.quantity > 1) {
 			item.quantity--;
 			let scrollTop = $('.order-items').scrollTop();
@@ -22,7 +27,12 @@ $(document).ready(function() {
 	};
 
 	let plusQuantity = (id) => {
-		let item = order[id];
+		let item;
+		for (let i = 0; i < order.length; i++) {
+			if (order[i].id === id) {
+				item = order[i];
+			}
+		}
 		item.quantity++;
 		let scrollTop = $('.order-items').scrollTop();
 		// Trigger rerender of the widget
@@ -41,7 +51,12 @@ $(document).ready(function() {
 	};
 
 	let controlDelivery = (id) => {
-		let item = order[id];
+		let item;
+		for (let i = 0; i < order.length; i++) {
+			if (order[i].id === id) {
+				item = order[i];
+			}
+		}
 		item.delivery = !item.delivery;
 		let scrollTop = $('.order-items').scrollTop();
 		// Trigger rerender of the widget
@@ -56,22 +71,25 @@ $(document).ready(function() {
 		order.push({
 			id: order.length,
 			name: `Бытовка-склад`,
-			price: 15300,
+			basicPrice: 7000,
 			quantity: 2,
 			delivery: true,
 			deliveryPrice: 14000,
 			additional: [
 					{
 						name: 'Столы',
-						quantity: 2
+						quantity: 2,
+						price: 1890
 					},
 					{
 						name: 'Стулья',
-						quantity: 1
+						quantity: 1,
+						price: 550
 					},
 					{
 						name: 'Шкафы',
-						quantity: 3
+						quantity: 3,
+						price: 6240
 					}
 			]
 		});
@@ -87,12 +105,8 @@ $(document).ready(function() {
 		event.stopPropagation();
 	});
 
-	$(document).on(orderLoadedFromStorage.type, function() { console.log('hello') });
-
 	// Widget render function assigned to order change event
 	$(document).on(`${orderChanged.type} ${orderLoadedFromStorage.type}`, function() {
-
-		console.log('hello');
 
 		// If there is any order in the array, render them, else, render the message about no orders
 		if (order.length > 0) {
@@ -111,9 +125,20 @@ $(document).ready(function() {
 
 			for (let orderItem of order) {
 
-				priceSum += (orderItem.quantity * orderItem.price);
+				// priceSum += (orderItem.quantity * orderItem.basicPrice);
 
-				let price = indentPrice(orderItem.quantity * orderItem.price);
+				let price = orderItem.basicPrice;
+
+				for (let additional of orderItem.additional) {
+					price += additional.quantity * additional.price;
+				}
+
+				price = orderItem.quantity * price;
+
+				priceSum += price;
+
+				price = indentPrice(price);
+
 
 				let deliveryPrice;
 				if (orderItem.delivery) {
@@ -279,5 +304,8 @@ $(document).ready(function() {
 			$('body').css({ 'overflow-y': 'auto' });
 		}
 	});
+
+	// Check, if something is loaded inside order from localStorage
+	$(document).trigger(orderLoadedFromStorage);
 
 });
