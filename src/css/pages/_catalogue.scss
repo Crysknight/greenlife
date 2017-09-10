@@ -218,6 +218,7 @@
 				position: relative;
 				display: flex;
 				align-items: center;
+				flex-wrap: wrap;
 			}
 			.option-inner:before {
 				content: '';
@@ -227,6 +228,10 @@
 				width: 20px;
 				height: 20px;
 				background-image: url('../img/additional-list-style-image.png');
+			}
+			.option-price, .option-name {
+				display: block;
+				width: 100%;
 			}
 			.option-name {
 				font-family: $glFBold;

@@ -1,5 +1,5 @@
 import order from './order';
-import { orderChanged } from './order';
+import { orderChanged, orderLoadedFromStorage } from './order';
 import svgPlus from '../../img/plus.svg';
 import svgMinus from '../../img/minus.svg';
 import indentPrice from '../utils/indent-price';
@@ -32,7 +32,7 @@ $(document).ready(function() {
 
 	let deleteItem = (id) => {
 		for (let i = 0; i < order.length; i++) {
-			if (i === id) {
+			if (order[i].id === id) {
 				order.splice(i, 1);
 			}
 		}
@@ -54,7 +54,8 @@ $(document).ready(function() {
 	/* =================================================================================================== */
 	let mockOrder = window.__gl_mockOrder = function() {
 		order.push({
-			name: 'Бытовка-склад',
+			id: order.length,
+			name: `Бытовка-склад`,
 			price: 15300,
 			quantity: 2,
 			delivery: true,
@@ -86,13 +87,17 @@ $(document).ready(function() {
 		event.stopPropagation();
 	});
 
+	$(document).on(orderLoadedFromStorage.type, function() { console.log('hello') });
+
 	// Widget render function assigned to order change event
-	orderInNavbar.on(orderChanged.type, function() {
+	$(document).on(`${orderChanged.type} ${orderLoadedFromStorage.type}`, function() {
+
+		console.log('hello');
 
 		// If there is any order in the array, render them, else, render the message about no orders
 		if (order.length > 0) {
 
-			$(this).addClass('order-added');
+			orderInNavbar.addClass('order-added');
 
 			let priceSum = 0;
 
@@ -104,9 +109,7 @@ $(document).ready(function() {
 					<div class="order-items">
 			`;
 
-			for (let orderItemNumber in order) {
-
-				let orderItem = order[orderItemNumber];
+			for (let orderItem of order) {
 
 				priceSum += (orderItem.quantity * orderItem.price);
 
@@ -119,7 +122,7 @@ $(document).ready(function() {
 				}
 
 				orderDisplay += `
-						<div class="order-item" id="order_item_${orderItemNumber}">
+						<div class="order-item" id="order_item_${orderItem.id}">
 							<div class="item-title">
 								${orderItem.name}
 							</div>
@@ -208,31 +211,31 @@ $(document).ready(function() {
 				</div>
 			`;
 
-			$(this).find('.gl-your-order-content').html(orderDisplay);
+			orderInNavbar.find('.gl-your-order-content').html(orderDisplay);
 
-			$(this).find('.close-button').click(function() {
+			orderInNavbar.find('.close-button').click(function() {
 				orderInNavbar.find('.nav-link').dropdown('toggle');
 			});
 
-			$(this).find('.controls-minus').click(function(event) {
+			orderInNavbar.find('.controls-minus').click(function(event) {
 				event.stopPropagation();
 				let id = +$(this).parents('.order-item').attr('id').slice(11);
 				minusQuantity(id);
 			});
 
-			$(this).find('.controls-plus').click(function(event) {
+			orderInNavbar.find('.controls-plus').click(function(event) {
 				event.stopPropagation();
 				let id = +$(this).parents('.order-item').attr('id').slice(11);
 				plusQuantity(id);
 			});
 
-			$(this).find('.item-delete').click(function(event) {
+			orderInNavbar.find('.item-delete').click(function(event) {
 				event.stopPropagation();
 				let id = +$(this).parents('.order-item').attr('id').slice(11);
 				deleteItem(id);
 			});
 
-			$(this).find('.delivery-checkbox').click(function(event) {
+			orderInNavbar.find('.delivery-checkbox').click(function(event) {
 				event.stopPropagation();
 				let id = +$(this).parents('.order-item').attr('id').slice(11);
 				controlDelivery(id);
@@ -244,9 +247,9 @@ $(document).ready(function() {
 
 		} else {
 
-			$(this).removeClass('order-added');
+			orderInNavbar.removeClass('order-added');
 
-			$(this).find('.gl-your-order-content').html('Вы еще ничего не добавили в заказ');
+			orderInNavbar.find('.gl-your-order-content').html('Вы еще ничего не добавили в заказ');
 
 		}
 

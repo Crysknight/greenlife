@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	if ($('.rack-price').length > 0) {
+	if ($('.gl-rack-info .rack-price').length > 0) {
 
 		let priceBlock = $('.rack-price');
 		let priceBlockWidth = priceBlock.outerWidth();
@@ -14,7 +14,7 @@ $(document).ready(function() {
 			priceBlock.find('.rack-price-sum').outerHeight() + 32 + 
 			+priceBlock.css('padding-top').replace(/px/, '');
 
-		$(window).scroll(function() {
+		let scrollWithPrice = () => {
 			let scroll = $(this).scrollTop();
 			if (scroll + priceBlockHeight >= $('.gl-footer').offset().top && !isPBBiggerThanWindow) {
 				priceBlock.css({
@@ -32,8 +32,7 @@ $(document).ready(function() {
 					'top': scroll - priceBlockOffset
 				});
 				priceBlock.outerWidth(priceBlockWidth);
-			} else if (scroll >= priceSumOffset - 32 && isPBBiggerThanWindow) {
-				console.log('hello');
+			} else if (scroll >= priceSumOffset - 2 && isPBBiggerThanWindow) {
 				priceBlock.find('.rack-basic-price').css({ 'display': 'none' });
 				priceBlock.css({
 					'position': 'absolute',
@@ -43,7 +42,11 @@ $(document).ready(function() {
 				priceBlock.removeAttr('style');
 				priceBlock.find('.rack-basic-price').removeAttr('style');
 			}
-		});
+		};
+
+		$(document).ready(scrollWithPrice);
+
+		$(window).scroll(scrollWithPrice);
 
 	}
 

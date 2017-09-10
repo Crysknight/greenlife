@@ -23,7 +23,7 @@ if ($('.scroll-down-inner').length > 0) {
 
 }
 
-if ($('video.gl-video')) {
+if ($('video.gl-video').length > 0) {
 
 	let preloadVideo = video => {
 		video.animate({
