@@ -1,7 +1,6 @@
 @keyframes markerFlicker {
-	from { box-shadow: 0 0 0 3px transparentize($glCGreen, 0.65); }
-	50% { box-shadow: 0 0 0 5px transparentize($glCGreen, 0.85); }
-	to { box-shadow: 0 0 0 3px transparentize($glCGreen, 0.65); }
+	from { box-shadow: 0 0 0 0px transparentize($glCGreen, 0.65); }
+	to { box-shadow: 0 0 0 8px transparentize($glCGreen, 1); }
 }
 
 .gl-map {

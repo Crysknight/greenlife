@@ -163,9 +163,9 @@
 			&.unfolded {
 				max-height: 170px;
 			}
-		}
-		@include respond-custom(320px, 520px) {
-			max-height: 60px;
+			@include respond-custom(320px, 520px) {
+				max-height: 60px;
+			}
 		}
 	}
 	.rack-term-line {
@@ -236,19 +236,20 @@
 				display: block;
 				margin-top: -3px;
 			}
-		}
-		@include respond-custom(320px, 520px) {
-			top: 2px;
+			@include respond-custom(320px, 520px) {
+				top: 2px;
+			}
 		}
 	}
 }
 
 .gl-racks-feats {
-	padding-top: 80px;
+	padding-top: 40%;
 	padding-bottom: 90px;
 	background-color: $glCBlack;
 	color: $glCWhite;
 	position: relative;
+	overflow: hidden;
 	@include respond-custom(320px, 400px) {
 		padding-bottom: 45px;
 	}
@@ -263,7 +264,10 @@
 		top: -140px;
 		width: 100%;
 		@include respond-custom(320px, $md) {
-			top: -80px;
+			top: -30px;
+		}
+		@include respond-custom(501px, 660px) {
+			top: -60px;
 		}
 	}
 	& > img {

@@ -29,6 +29,7 @@ $(document).ready(() => {
 			let quantity = +localStorage[`__gl_order_${name}_${id}_quantity`];
 			let delivery = JSON.parse(localStorage[`__gl_order_${name}_${id}_delivery`]);
 			let deliveryPrice = +localStorage[`__gl_order_${name}_${id}_deliveryPrice`];
+			let additionalPrice = +localStorage[`__gl_order_${name}_${id}_additionalPrice`];
 			order.push({ id, name, basicPrice, quantity, delivery, deliveryPrice, additional: [] });
 		}
 	}
@@ -48,14 +49,14 @@ $(document).ready(() => {
 			thisOrder.additional.push({ name, quantity, price });
 		}
 	}
+	for (let item of order) {
+		item.additional.sort(function(a, b) {
+			if (a.name > b.name) return 1;
+			if (a.name < b.name) return -1;
+		});
+	}
 	$(document).trigger(orderLoadedFromStorage);
 });
 
 export default order;
 export { orderChanged, orderLoadedFromStorage };
-
-/* =================================================================================================== */
-/* < MOCK PARTS > */
-/* =================================================================================================== */
-
-window.__order = order;

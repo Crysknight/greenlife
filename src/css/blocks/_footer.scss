@@ -45,6 +45,9 @@
 			margin-top: -85px;
 			float: right;
 		}
+		@include respond-custom(320px, 520px) {
+			display: none;
+		}
 	}
 
 	.gl-sitemap {

@@ -67,36 +67,37 @@ $(document).ready(function() {
 	/* =================================================================================================== */
 	/* < MOCKER > */
 	/* =================================================================================================== */
-	let mockOrder = window.__gl_mockOrder = function() {
-		order.push({
-			id: order.length,
-			name: `Бытовка-склад`,
-			basicPrice: 7000,
-			quantity: 2,
-			delivery: true,
-			deliveryPrice: 14000,
-			additional: [
-					{
-						name: 'Столы',
-						quantity: 2,
-						price: 1890
-					},
-					{
-						name: 'Стулья',
-						quantity: 1,
-						price: 550
-					},
-					{
-						name: 'Шкафы',
-						quantity: 3,
-						price: 6240
-					}
-			]
-		});
-		orderInNavbar.trigger(orderChanged);
-	};
+	// let mockOrder = window.__gl_mockOrder = function() {
+	// 	order.push({
+	// 		id: order.length,
+	// 		name: `Бытовка-склад`,
+	// 		basicPrice: 7000,
+	// 		quantity: 2,
+	// 		delivery: true,
+	// 		deliveryPrice: 14000,
+	// 		additionalPrice: 1890 + 550 + 6240,
+	// 		additional: [
+	// 				{
+	// 					name: 'Столы',
+	// 					quantity: 2,
+	// 					price: 1890
+	// 				},
+	// 				{
+	// 					name: 'Стулья',
+	// 					quantity: 1,
+	// 					price: 550
+	// 				},
+	// 				{
+	// 					name: 'Шкафы',
+	// 					quantity: 3,
+	// 					price: 6240
+	// 				}
+	// 		]
+	// 	});
+	// 	orderInNavbar.trigger(orderChanged);
+	// };
 
-	$('.gl-first-screen h1').css({ "cursor": "pointer" }).click(mockOrder);
+	// $('.gl-first-screen h1').css({ "cursor": "pointer" }).click(mockOrder);
 	/* =================================================================================================== */
 	/* < /MOCKER > */
 	/* =================================================================================================== */
@@ -169,6 +170,7 @@ $(document).ready(function() {
 				`;
 
 				for (let additional of orderItem.additional) {
+					if (additional.quantity === 0) continue;
 					orderDisplay += `
 								<span>${additional.name} (${additional.quantity}), </span>
 					`;
