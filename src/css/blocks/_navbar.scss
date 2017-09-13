@@ -5,7 +5,7 @@
 	width: 100%;
 	box-sizing: border-box;
 	z-index: 70;
-	padding: 0 0 0 15px;
+	padding: 0;
 	background-color: $glCWhite;
 
 	@include respond-to(xs) {
@@ -27,7 +27,11 @@
 	.navbar-brand	{
 		font-family: $glFBold;
 		font-size: 14px;
-		padding: 13px 0;
+		padding: 13px 15px;
+		margin-right: 0;
+		&:hover {
+			background-color: $glCGrey;
+		}
 	}
 	.navbar-brand.mobile-phone {
 		display: none;
@@ -82,12 +86,6 @@
 			background-color: $glCGreen;
 			img {
 				filter: brightness(10);
-			}
-		}
-		.gl-phone {
-			cursor: default;
-			&:hover {
-				background-color: $glCWhite;
 			}
 		}
 	}

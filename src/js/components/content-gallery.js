@@ -2,7 +2,7 @@ import stretchAndCenter from '../utils/stretch-and-center';
 
 $(document).ready(function() {
 
-	$('[data-fancybox').fancybox({
+	$('[data-fancybox]').fancybox({
 		buttons: [
 			'close'
 		],

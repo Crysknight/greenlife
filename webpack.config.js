@@ -18,8 +18,9 @@ module.exports = {
 		rules: [
 			{
 				test: /\.scss$/,
+				include: path.resolve(__dirname, 'src/css'),
 				use: extractPlugin.extract({
-					use: ['css-loader', 'sass-loader']
+					use: ['css-loader', 'postcss-loader', 'sass-loader']
 				})
 			},
 			{

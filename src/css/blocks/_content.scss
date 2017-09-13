@@ -43,12 +43,16 @@
 		justify-content: center;
 		width: 22px;
 		height: 22px;
+		padding-top: 1px;
 		color: $glCGreen;
 		background-image: none;
 		border: $glXBorderGreen;
 		border-radius: 50%;
 		font-family: $glFBold;
 		font-size: 12px;
+		html.windows & {
+			padding-top: 0;
+		}
 	}
 	ol li:first-child:before {
 		content: '1';

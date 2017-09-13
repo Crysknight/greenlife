@@ -4,7 +4,7 @@ import { device } from 'device.js';
 import '@fancyapps/fancybox/dist/jquery.fancybox.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'slick-carousel/slick/slick.scss';
+import 'slick-carousel/slick/slick.css';
 import '@fancyapps/fancybox/dist/jquery.fancybox.min.css';
 import '../css/index.scss';
 

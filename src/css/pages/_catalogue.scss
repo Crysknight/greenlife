@@ -130,7 +130,7 @@
 	.row {
 		position: relative;
 	}
-	.rack-price, .rack-info {
+	.rack-info {
 		padding-top: 70px;
 	}
 	.rack-price {
@@ -142,6 +142,13 @@
 		@include respond-custom(320px, $md) {
 			order: -1;
 		}
+	}
+	.rack-basic-price {
+		padding-top: 70px;
+		padding-bottom: 32px;
+	}
+	.rack-price-sum {
+		padding-top: 32px;
 	}
 	.price {
 		display: inline-block;
@@ -182,6 +189,7 @@
 		margin: 32px 0;
 		&.grey {
 			background-color: transparentize($glCBlack, 0.75);
+			margin: 0;
 		}
 	}
 	.gl-section-button {
