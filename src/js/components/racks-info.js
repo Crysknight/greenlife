@@ -5,10 +5,6 @@ $(document).ready(function() {
 
 	if ($('.rack-type').length > 0) {
 
-		$(window).on('load', () => stretchAndCenter($('.rack-type'), '.type-bg img'));
-
-		$(window).resize(() => stretchAndCenter($('.rack-type'), '.type-bg img'));
-
 		if ($('html.desktop').length > 0) {
 
 			$('.rack-type video').each(function() {
@@ -42,6 +38,18 @@ $(document).ready(function() {
 			});
 
 		}
+
+	}
+
+});
+
+window.addEventListener('load', () => {
+
+	if ($('.rack-type').length > 0) {
+
+		stretchAndCenter($('.rack-type'), '.type-bg img');
+
+		$(window).resize(() => stretchAndCenter($('.rack-type'), '.type-bg img'));
 
 	}
 

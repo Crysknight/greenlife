@@ -1,7 +1,8 @@
 import isVisible from '../utils/is-visible';
 
 if ($('.racks-feat').length > 0) {
-	$(window).on('load', function() {
+
+	window.addEventListener('load', function() {
 
 		$('.racks-feat').last().find('.ml-auto, .mr-auto').css({ "border-bottom": "none" });
 
@@ -24,4 +25,5 @@ if ($('.racks-feat').length > 0) {
 		}
 
 	});
+	
 }

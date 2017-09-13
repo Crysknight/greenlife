@@ -17,8 +17,9 @@ import './components/gl-map';
 import './components/order';
 import './components/order-in-navbar';
 import './components/racks-terms';
-import './components/rack-gallery';
+import './components/content-gallery';
 import './components/rack-price';
 import './components/catalogue';
+import './components/press';
 
 device.addClasses(document.documentElement);

@@ -115,3 +115,20 @@ if ($('.gl-google-map').length > 0) {
 
 	});
 }
+
+if ($('.gl-google-map-contacts').length > 0) {
+	$script('https://maps.googleapis.com/maps/api/js?key=AIzaSyCWgWiXe4fdVDjYj6-APt80DhtH2o05w8U&amp', function() {
+
+		let map = new google.maps.Map(document.querySelector('.gl-google-map-contacts'), {
+			center: { lat: 55.895397, lng: 37.452266 },
+			zoom: 17,
+			disableDefaultUI: true
+		});
+    var marker = new google.maps.Marker({
+      position: { lat: 55.895397, lng: 37.452266 },
+      map: map,
+      title: 'Ленинский проспект, д. 1, к. 1'
+    });
+
+	});
+}

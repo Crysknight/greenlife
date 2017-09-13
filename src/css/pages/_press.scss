@@ -1,0 +1,131 @@
+.gl-press-chart {
+	padding-top: 70px;
+	padding-bottom: 80px;
+	.news-block {
+		display: block;
+		height: 200px;
+		overflow: hidden;
+		margin-bottom: 30px;
+		position: relative;
+		padding: 25px;
+		cursor: pointer;
+	}
+	.block-bg, 
+	.block-bg-cover,
+	.block-date,
+	.block-title {
+		position: absolute;
+	}
+	.block-title,
+	.block-date {
+		color: $glCWhite;
+	}
+	.block-bg {
+		margin: -25px;
+	}
+	.block-bg-cover {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: transparentize($glCBlack, 0.35);
+	}
+	.news-block.no-image .block-bg-cover {
+		background-color: $glCGreen;
+	}
+	.block-date {
+		top: 25px;
+		left: 25px;
+		margin: 0;
+	}
+	.block-title {
+		bottom: 25px;
+		left: 25px;
+		margin: 0;
+		width: calc(100% - 50px);
+	}
+	.button {
+		position: relative;
+		.gl-section-button {
+			float: none;
+			display: block;
+			padding-top: 12px;
+			width: 230px;
+			margin: 50px auto 0;
+			padding-left: 0;
+			padding-right: 0;
+			transition: none;
+			&:hover {
+				background-color: $glCWhite;
+				color: $glCGreen;
+				border: 2px solid $glCGreen;
+			}
+			span {
+				margin-left: 40px;
+			}
+		}
+		.gl-section-button.press-show-more-inversed {
+			position: absolute;
+			top: -50px;
+			left: 50%;
+			white-space: nowrap;
+			width: 0;
+			margin-left: -115px;
+			overflow: hidden;
+			background-color: $glCGreen;
+			color: $glCWhite;
+			border: 2px solid $glCGreen;
+			border-right: none;
+		}
+	}
+}
+
+.fancybox-container {
+	.fancybox-close-small {
+		display: none;
+	}
+}
+
+.news-block-inner {
+	background-color: transparent;
+	.inner-wrapper {
+		background-color: $glCWhite;
+		border: 4px solid $glCGreen;
+		padding: 70px 0;
+		position: relative;
+		.inner-date {
+			margin-bottom: 30px;
+		}
+		.inner-header {
+			font-size: 30px;
+			font-family: $glFLight;
+			margin-bottom: 30px;
+		}
+		.close-button {
+			display: inline-block;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 90px;
+			height: 90px;
+			cursor: pointer;
+			z-index: 500;
+			&:before, &:after {
+				content: '';
+				position: absolute;
+				left: 33px;
+				top: 37px;
+				width: 27px;
+				height: 3px;
+				border-radius: 4px;
+				background-color: $glCGreen;
+			}
+			&:before {
+				transform: rotate(45deg);
+			}
+			&:after {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+}

@@ -1,0 +1,111 @@
+.gl-article-header {
+	display: flex;
+	align-items: center;
+	margin-top: 44px;
+	height: 235px;
+	background-image: url('../img/article-header-dot.png');
+	background-size: 30px;
+	background-color: $glCCoal;
+	h2.gl-section-primary,
+	h2.gl-section-title {
+		color: $glCWhite;
+	}
+}
+
+.gl-article-page {
+	background-color: $glCLightLightGrey;
+	padding-top: 65px;
+	padding-bottom: 75px;
+	.article-title {
+		font-family: $glFLight;
+		font-size: 30px;
+		color: $glCBlack;
+		margin-bottom: 25px;
+	}
+	.article-delimiter {
+		height: 1px;
+		width: 100%;
+		background-color: $glCOrange;
+		margin: 25px 0;
+	}
+	.rack-gallery {
+		margin-top: 50px;
+		@include respond-custom(320px, $md) {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+		@include respond-custom(320px, 500px) {
+			flex-wrap: wrap;
+		}
+		.gallery-image {
+			display: block;
+			width: 100%;
+			height: 140px;
+			margin-bottom: 30px;
+			overflow: hidden;
+			@include respond-custom(320px, $md) {
+				display: inline-block;
+				width: auto;
+				margin-left: 10px;
+				&:first-child {
+					margin-left: 0;
+				}
+			}
+			@include respond-custom(320px, 350px) {
+				width: 100%;
+				margin-left: 0;
+			}
+			@include respond-custom(351px, 500px) {
+				width: 65%;
+				margin-left: 0;
+			}
+		}
+	}
+	.gl-section-button {
+		float: none;
+		margin-top: 8px;
+		@include respond-custom(320px, 450px) {
+			display: flex;
+			width: 100%;
+			margin-bottom: 10px;
+		}
+	}
+	span.price-hint {
+		display: inline-block;
+		margin-left: 30px;
+	}
+	.articles-list {
+		padding: 15px 30px 0;
+		border: 1px solid transparentize($glCBlack, 0.75);
+		background-color: $glCWhite;
+		box-shadow: 0 0 10px transparentize($glCBlack, 0.9);
+		@include respond-custom(320px, $md) {
+			display: none;
+		}
+		ul {
+			padding-left: 20px;
+			li {
+				color: $glCGreen;
+				padding: 10px 0;
+				position: relative;
+				&:after {
+					content: '';
+					position: absolute;
+					bottom: -1px;
+					left: -10%;
+					display: block;
+					height: 1px;
+					width: 110%;
+					background-color: $glCDelimitersGrey;
+				}
+			}
+			li:last-child:after {
+				display: none;
+			}
+			a {
+				color: $glCBlack;
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+.gl-contacts-page {
+	background-color: $glCLightLightGrey;
+	padding-top: 70px;
+	padding-bottom: 80px;
+	h2.contacts-header {
+		font-family: $glFLight;
+		font-size: 30px;
+		margin-bottom: 25px;
+	}
+	.contacts-block {
+		border: $glXBorderGreen;
+		padding: 25px 50px;
+		margin-bottom: 30px;
+		p {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.gl-google-map-contacts {
+	height: 340px;
+}
+

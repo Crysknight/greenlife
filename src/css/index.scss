@@ -14,6 +14,10 @@
 // Pages
 @import './pages/index';
 @import './pages/catalogue';
+@import './pages/article';
+@import './pages/terms';
+@import './pages/contacts';
+@import './pages/press';
 
 body {
 	line-height: 1.35;
@@ -35,7 +39,9 @@ h1 {
 	margin-bottom: 35px;
 }
 
-p.gl-section-primary, h1.gl-section-primary {
+p.gl-section-primary, 
+h1.gl-section-primary, 
+h2.gl-section-primary {
 	font-family: $glFRegular;
 	font-size: 50px;
 	line-height: 1;
@@ -66,7 +72,7 @@ p.gl-section-secondary {
 	}
 }
 
-h2.gl-section-title {
+.gl-section-title {
 	margin-top: 15px;
 	text-transform: uppercase;
 	font-family: $glFBold;
@@ -77,6 +83,11 @@ h2.gl-section-title {
 	@include respond-to(xs) {
 		margin-bottom: 40px;
 	}
+}
+
+.gl-content-title {
+	font-size: 20px;
+	font-family: $glFMedium;
 }
 
 .gl-section-button {
@@ -95,6 +106,7 @@ h2.gl-section-title {
 	box-sizing: border-box;
 	transition: all 0.3s;
 	letter-spacing: 2px;
+	cursor: pointer;
 	&:hover {
 		background-color: $glCGreen;
 		color: $glCWhite;
@@ -241,5 +253,14 @@ a {
 		img {
 			transform: rotate(45deg);
 		}
+	}
+}
+
+.price-value {
+	font-family: $glFLight;
+	font-size: 30px;
+	margin-bottom: 5px;
+	@include respond-custom(320px, 500px) {
+		font-size: 20px;
 	}
 }

@@ -1,0 +1,29 @@
+.gl-terms-page {
+	background-color: $glCLightLightGrey;
+	padding-top: 70px;
+	padding-bottom: 80px;
+	h2.terms-header {
+		font-family: $glFLight;
+		font-size: 30px;
+		margin-bottom: 25px;
+		@include respond-custom(320px, 500px) {
+			font-size: 20px;
+		}
+	}
+	h4 {
+		margin-bottom: 10px;
+	}
+	ol, ul {
+		margin-bottom: 30px;
+	}
+	.term-price {
+		border: $glXBorderGreen;
+		padding: 25px 70px;
+		p {
+			margin-bottom: 0;
+		}
+	}
+	.col-12 > .term-price {
+		margin-top: 30px;
+	}
+}

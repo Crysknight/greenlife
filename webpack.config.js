@@ -99,6 +99,22 @@ module.exports = {
 			filename: 'catalogue.html',
 			template: 'src/catalogue.html'
 		}),
+		new HtmlWebpackPlugin({
+			filename: 'article.html',
+			template: 'src/article.html'
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'terms.html',
+			template: 'src/terms.html'
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'contacts.html',
+			template: 'src/contacts.html'
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'press.html',
+			template: 'src/press.html'
+		}),
 		new CleanWebpackPlugin(['dist'])
 	]
 };
