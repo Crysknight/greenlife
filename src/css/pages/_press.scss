@@ -23,6 +23,9 @@
 	.block-bg {
 		margin: -25px;
 	}
+	.news-block>img {
+		position: absolute;
+	}
 	.block-bg-cover {
 		top: 0;
 		left: 0;
@@ -100,6 +103,9 @@
 			font-size: 30px;
 			font-family: $glFLight;
 			margin-bottom: 30px;
+			@include respond-custom(320px, 500px) {
+				font-size: 20px;
+			}
 		}
 		.close-button {
 			display: inline-block;
@@ -110,6 +116,9 @@
 			height: 90px;
 			cursor: pointer;
 			z-index: 500;
+			// html.mobile &, html.tablet & {
+			// 	display: none;
+			// }
 			&:before, &:after {
 				content: '';
 				position: absolute;

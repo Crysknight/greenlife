@@ -65,12 +65,13 @@
 				height: 10px;
 				margin-right: 6px;
 				margin-top: -2px;
-			}
-			@include respond-to(xs) {
-				img {
+				html.mobile & {
 					display: none;
 				}
 			}
+		}
+		&.dropdown .nav-link {
+			cursor: default;
 		}
 		&.dropdown.show .nav-link {
 			background-color: $glCGrey;
@@ -92,8 +93,11 @@
 
 	.nav-item.gl-phone-item {
 		display: flex;
-		@include respond-to(xs) {
+		html.mobile & {
 			display: none;
+		}
+		html.tablet & img {
+			display: inline-block;
 		}
 	}
 
@@ -118,7 +122,7 @@
 		font-family: $glFRegular;
 		font-size: 11px;
 		border: none;
-		margin-top: 1px;
+		border-top: 1px solid transparent;
 		z-index: 100;
 		.dropdown-item {
 			padding: 10px 14px;
@@ -228,7 +232,7 @@
 			width: 450px;
 			position: relative;
 			right: -450px;
-			html.mobile &, html.tablet & {
+			html.mobile & {
 				position: fixed;
 				height: 100vh;
 				width: 100vw;
@@ -335,6 +339,12 @@
 				align-items: center;
 				justify-content: space-around;
 				font-family: $glFBold;
+				html.mobile &, html.tablet & {
+					justify-content: flex-start;
+					div {
+						margin-right: 15px;
+					}
+				}
 			}
 		}
 		.price-number, .price-comment {
@@ -368,6 +378,12 @@
 				align-items: center;
 				justify-content: space-around;
 				font-family: $glFBold;
+				html.mobile &, html.tablet & {
+					justify-content: flex-start;
+					div {
+						margin-right: 15px;
+					}
+				}
 			}
 			.price-number, .price-comment {
 				color: $glCWhite;

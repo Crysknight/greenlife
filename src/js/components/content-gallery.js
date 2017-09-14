@@ -6,6 +6,16 @@ $(document).ready(function() {
 		buttons: [
 			'close'
 		],
+		media: {
+			youtube: {
+				params: {
+					autoplay: 0
+				}
+			}
+		},
+		touch: {
+			vertical: false
+		},
 		animationEffect: 'fade'
 	});
 

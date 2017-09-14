@@ -10,4 +10,10 @@
 		max-width: 80vw;
 		max-height: 80vh;
 	}
+	.fancybox-slide>* {
+		@include respond-custom(320px, 500px) {
+			padding: 0;
+			margin: 15px 0;
+		}
+	}
 }

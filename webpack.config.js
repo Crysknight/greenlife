@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractPlugin = new ExtractTextPlugin({
-	filename: 'main[hash].css'
+	filename: '../css/styles.css'
 });
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -10,9 +10,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
 	entry: './src/js/index.js',
 	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: '[name].bundle[hash].js'
-		// publicPath: '/'
+		path: path.resolve(__dirname, 'dist/js'),
+		filename: 'scripts.js',
+		publicPath: '/js/'
 	},
 	module: {
 		rules: [
@@ -26,7 +26,11 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: extractPlugin.extract({
-					use: ['css-loader']
+					use: [
+						{
+							loader: 'css-loader'
+						}
+					]
 				})
 			},
 			{
@@ -59,8 +63,8 @@ module.exports = {
 						loader: 'file-loader',
 						options: {
 							name: '[name].[ext]',
-							outputPath: 'img/'
-							// publicPath: 'img/'
+							outputPath: '../img/',
+							publicPath: '/img/'
 						}
 					},
 					'image-webpack-loader'
@@ -72,7 +76,9 @@ module.exports = {
 				use: {
 					loader: 'file-loader',
 					options: {
-						outputPath: 'fonts/'
+						name: '[name].[ext]',
+						outputPath: '../fonts/',
+						publicPath: '/fonts/'
 					}
 				}
 			}
@@ -93,28 +99,32 @@ module.exports = {
 		}),
 		extractPlugin,
 		new HtmlWebpackPlugin({
-			filename: 'index.html',
+			filename: '../index.html',
 			template: 'src/index.html'
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'catalogue.html',
+			filename: '../catalogue.html',
 			template: 'src/catalogue.html'
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'article.html',
+			filename: '../article.html',
 			template: 'src/article.html'
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'terms.html',
+			filename: '../terms.html',
 			template: 'src/terms.html'
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'contacts.html',
+			filename: '../contacts.html',
 			template: 'src/contacts.html'
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'press.html',
+			filename: '../press.html',
 			template: 'src/press.html'
+		}),
+		new HtmlWebpackPlugin({
+			filename: '../photo-gallery.html',
+			template: 'src/photo-gallery.html'
 		}),
 		new CleanWebpackPlugin(['dist'])
 	]

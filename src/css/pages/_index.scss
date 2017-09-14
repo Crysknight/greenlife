@@ -491,3 +491,9 @@
 		padding-top: 30px;
 	}
 }
+
+.gl-section-button.index {
+	@include respond-custom(320px, 400px) {
+		display: none;
+	}
+}

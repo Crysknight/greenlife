@@ -115,9 +115,6 @@ p.gl-section-secondary {
 		width: 170px;
 		font-size: 11px;
 	}
-	@include respond-custom(320px, 400px) {
-		display: none;
-	}
 }
 
 .gl-f-c-green {
