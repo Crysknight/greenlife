@@ -236,6 +236,16 @@ $(document).ready(function() {
 						<button class="gl-submit-order gl-section-button">Оформить заказ</button>
 					</div>
 				</div>
+				<div class="gl-order-form">
+					<h3>Оформление заказа</h3>
+					<input type="text" placeholder="ФИО" />
+					<input type="number" placeholder="Номер телефона" />
+					<input type="email" placeholder="Адрес электронной почты" />
+					<textarea placeholder="Адрес доставки" />
+					<div class="order-form-delimiter"></div>
+					<div class="delivery-checkbox checked></div>
+					<div class="order-form-delimiter"></div>
+				</div>
 			`;
 
 			orderInNavbar.find('.gl-your-order-content').html(orderDisplay);
