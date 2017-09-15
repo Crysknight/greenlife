@@ -82,6 +82,11 @@
 				transition: all 0.2s;
 			}
 		}
+		&.dropdown.gl-your-order.order-added {
+			html.mobile & {
+				background-color: $glCGreen;
+			}
+		}
 		&.dropdown.show.gl-your-order.order-added .nav-link, &.dropdown.gl-your-order.order-just-added {
 			color: $glCWhite;
 			background-color: $glCGreen;

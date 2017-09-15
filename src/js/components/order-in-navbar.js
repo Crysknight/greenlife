@@ -303,8 +303,8 @@ $(document).ready(function() {
 					dropdown.removeAttr('style');
 				}
 			});
-			$('body').css({ 'overflow-y': 'auto' });
 		}
+		$('body').css({ 'overflow-y': 'auto' });
 	});
 
 	// Check, if something is loaded inside order from localStorage

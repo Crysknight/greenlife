@@ -23,3 +23,13 @@ import './components/catalogue';
 import './components/press';
 
 device.addClasses(document.documentElement);
+
+if ($('html.ios').length > 0) {
+	setTimeout(function() {
+		for (let dropdown of document.querySelectorAll('.nav-item.dropdown')) {
+			dropdown.addEventListener('click', function() {
+				console.log('hello, motherfucker');
+			});
+		}
+	}, 1000);
+}
