@@ -1,6 +1,6 @@
 import slick from 'slick-carousel';
-import LeftArrow from '../../img/arrow-left-slider.svg';
-import RightArrow from '../../img/arrow-right-slider.svg';
+// import LeftArrow from '../../img/arrow-left-slider.svg';
+// import RightArrow from '../../img/arrow-right-slider.svg';
 
 if ($('.gl-slider').length > 0) {
 
@@ -13,8 +13,8 @@ if ($('.gl-slider').length > 0) {
 			infinite: true,
 			slidesToShow: 3,
 			slidesToScroll: 1,
-			prevArrow: `<div class="prev"><img src="${LeftArrow}" /></div>`,
-			nextArrow: `<div class="next"><img src="${RightArrow}" /></div>`,
+			prevArrow: `<div class="prev"></div>`,
+			nextArrow: `<div class="next"></div>`,
 			responsive: [
 				{
 					breakpoint: 992,
@@ -39,8 +39,8 @@ if ($('.gl-slider').length > 0) {
 			infinite: true,
 			slidesToShow: 4,
 			slidesToScroll: 1,
-			prevArrow: `<div class="prev"><img src="${LeftArrow}" /></div>`,
-			nextArrow: `<div class="next"><img src="${RightArrow}" /></div>`,
+			prevArrow: `<div class="prev"></div>`,
+			nextArrow: `<div class="next"></div>`,
 			responsive: [
 				{
 					breakpoint: 992,

@@ -20,7 +20,17 @@ module.exports = {
 				test: /\.scss$/,
 				include: path.resolve(__dirname, 'src/css'),
 				use: extractPlugin.extract({
-					use: ['css-loader', 'postcss-loader', 'sass-loader']
+					use: [
+						{
+							loader: 'css-loader',
+							options: {
+								root: '..',
+								url: false
+							}
+						}, 
+						'postcss-loader', 
+						'sass-loader'
+					]
 				})
 			},
 			{
@@ -75,7 +85,8 @@ module.exports = {
 				use: {
 					loader: 'file-loader',
 					options: {
-						name: 'fonts/[name].[ext]'
+						name: 'fonts/[name].[ext]',
+						publicPath: '../'
 					}
 				}
 			}

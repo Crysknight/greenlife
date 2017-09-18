@@ -9,19 +9,36 @@
 		height: 60px;
 		cursor: pointer;
 		position: absolute;
-		img {
-			margin: 10px 0 0 7.5px;
-		}
 		&.next {
 			right: -30px;
 			@include respond-to(xs) {
 				right: -22px;
+			}
+			&:after {
+				content: '';
+				display: inline-block;
+				margin: 10px 0 0 7.5px;
+				width: 25px;
+				height: 45px;
+				background-image: url('../img/arrow-right-slider.svg');
+				background-size: cover;
+				background-repeat: no-repeat;
 			}
 		}
 		&.prev {
 			left: -30px;
 			@include respond-to(xs) {
 				left: -22px;
+			}
+			&:after {
+				content: '';
+				display: inline-block;
+				margin: 10px 0 0 7.5px;
+				width: 25px;
+				height: 45px;
+				background-image: url('../img/arrow-left-slider.svg');
+				background-size: cover;
+				background-repeat: no-repeat;
 			}
 		}
 	}
