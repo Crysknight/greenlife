@@ -3,6 +3,7 @@ import { orderChanged, orderLoadedFromStorage } from './order';
 import svgPlus from '../../img/plus.svg';
 import svgMinus from '../../img/minus.svg';
 import indentPrice from '../utils/indent-price';
+import '../utils/jquery.maskedinput.min.js';
 
 $(document).ready(function() {
 
@@ -184,7 +185,11 @@ $(document).ready(function() {
 							</div>
 							<hr />
 							<div class="item-delivery">
-								<div class="${orderItem.delivery ? 'delivery-checkbox checked' : 'delivery-checkbox'}"></div>
+								<div class="${
+									orderItem.delivery ? 
+									'delivery-checkbox order-checkbox checked' : 
+									'delivery-checkbox order-checkbox'
+								}"></div>
 								<div class="delivery-info">
 									<div class="info-title">Доставить эту бытовку</div>
 									<p>Оплата за доставку и возврат вносится единовременно и составляет 14000 руб. за бытовку</p>
@@ -239,12 +244,18 @@ $(document).ready(function() {
 				<div class="gl-order-form">
 					<h3>Оформление заказа</h3>
 					<input type="text" placeholder="ФИО" />
-					<input type="number" placeholder="Номер телефона" />
+					<input class="order-phone" placeholder="Номер телефона" />
 					<input type="email" placeholder="Адрес электронной почты" />
 					<textarea placeholder="Адрес доставки" />
 					<div class="order-form-delimiter"></div>
-					<div class="delivery-checkbox checked></div>
+					<div class="item-delivery">
+						<div class="order-checkbox checked"></div>
+						<div class="delivery-info">
+							<div class="info-title">Согласие на обработку персональных данных</div>
+						</div>
+					</div>
 					<div class="order-form-delimiter"></div>
+					<button class="gl-submit-order gl-section-button">Оформить заказ</button>
 				</div>
 			`;
 
@@ -277,6 +288,8 @@ $(document).ready(function() {
 				let id = +$(this).parents('.order-item').attr('id').slice(11);
 				controlDelivery(id);
 			});
+
+			orderInNavbar.find('.gl-order-form .order-phone').mask("+7 (999) 999-99-99");
 
 			if ($('span.price-number').width() > 180) {
 				$('span.price-number').css({ "font-size": "26px" });

@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractPlugin = new ExtractTextPlugin({
-	filename: '../css/styles.css'
+	filename: 'css/styles.css'
 });
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -10,9 +10,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
 	entry: './src/js/index.js',
 	output: {
-		path: path.resolve(__dirname, 'dist/js'),
-		filename: 'scripts.js',
-		publicPath: '/js/'
+		path: path.resolve(__dirname, 'dist'),
+		filename: 'js/scripts.js',
+		publicPath: '/'
 	},
 	module: {
 		rules: [
@@ -49,7 +49,8 @@ module.exports = {
 				use: {
 					loader: 'html-loader',
 					options: {
-						interpolate: true
+						interpolate: true,
+						minimize: false
 					}
 				}
 			},
@@ -62,9 +63,7 @@ module.exports = {
 					{
 						loader: 'file-loader',
 						options: {
-							name: '[name].[ext]',
-							outputPath: '../img/',
-							publicPath: '/img/'
+							name: 'img/[name].[ext]'
 						}
 					},
 					'image-webpack-loader'
@@ -76,9 +75,7 @@ module.exports = {
 				use: {
 					loader: 'file-loader',
 					options: {
-						name: '[name].[ext]',
-						outputPath: '../fonts/',
-						publicPath: ''
+						name: 'fonts/[name].[ext]'
 					}
 				}
 			}
@@ -99,32 +96,39 @@ module.exports = {
 		}),
 		extractPlugin,
 		new HtmlWebpackPlugin({
-			filename: '../index.html',
-			template: 'src/index.html'
+			filename: 'index.html',
+			template: 'src/index.html',
+			minify: false
 		}),
 		new HtmlWebpackPlugin({
-			filename: '../catalogue.html',
-			template: 'src/catalogue.html'
+			filename: 'catalogue.html',
+			template: 'src/catalogue.html',
+			minify: false
 		}),
 		new HtmlWebpackPlugin({
-			filename: '../article.html',
-			template: 'src/article.html'
+			filename: 'article.html',
+			template: 'src/article.html',
+			minify: false
 		}),
 		new HtmlWebpackPlugin({
-			filename: '../terms.html',
-			template: 'src/terms.html'
+			filename: 'terms.html',
+			template: 'src/terms.html',
+			minify: false
 		}),
 		new HtmlWebpackPlugin({
-			filename: '../contacts.html',
-			template: 'src/contacts.html'
+			filename: 'contacts.html',
+			template: 'src/contacts.html',
+			minify: false
 		}),
 		new HtmlWebpackPlugin({
-			filename: '../press.html',
-			template: 'src/press.html'
+			filename: 'press.html',
+			template: 'src/press.html',
+			minify: false
 		}),
 		new HtmlWebpackPlugin({
-			filename: '../photo-gallery.html',
-			template: 'src/photo-gallery.html'
+			filename: 'photo-gallery.html',
+			template: 'src/photo-gallery.html',
+			minify: false
 		}),
 		new CleanWebpackPlugin(['dist'])
 	]

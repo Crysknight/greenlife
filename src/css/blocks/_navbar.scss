@@ -281,6 +281,27 @@
 		.close-button {
 			display: none;
 		}
+		.item-delivery {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			p {
+				margin: 0;
+				color: $glCTextGrey;
+			}
+		}
+		.order-checkbox {
+			display: inline-flex;
+			flex-basis: 18px;
+			flex-shrink: 0;
+			height: 18px;
+			margin-right: 18px;
+			background-image: url('../img/gl-checkbox-unchecked.png');
+			cursor: pointer;
+			&.checked {
+				background-image: url('../img/gl-checkbox-checked.png');
+			}
+		}
 		.order-items {
 			padding: 1px;
 			padding-bottom: 14px;
@@ -315,27 +336,6 @@
 					margin: 0;
 				}
 				span {
-					color: $glCTextGrey;
-				}
-			}
-			.item-delivery {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				.delivery-checkbox {
-					display: inline-flex;
-					flex-basis: 18px;
-					flex-shrink: 0;
-					height: 18px;
-					margin-right: 18px;
-					background-image: url('../img/gl-checkbox-unchecked.png');
-					cursor: pointer;
-					&.checked {
-						background-image: url('../img/gl-checkbox-checked.png');
-					}
-				}
-				p {
-					margin: 0;
 					color: $glCTextGrey;
 				}
 			}
@@ -421,6 +421,26 @@
 				&:hover {
 					background-color: $glCGreen;
 				}
+			}
+		}
+		.gl-order-form {
+			width: 100%;
+			padding: 20px;
+			position: absolute;
+			top: 0;
+			height: calc(100vh - 44px);
+			transform: translateY(0vh);
+			transition: all 0.3s;
+			background-color: $glCLightLightGrey;
+			input, textarea {
+				display: block;
+				width: 100%;
+				border: none;
+				outline: none;
+				resize: none;
+				padding: 15px 0 0 30px;
+				background-color: $glCGrey;
+				@include placeholder($glCSatanGrey);
 			}
 		}
 	}
