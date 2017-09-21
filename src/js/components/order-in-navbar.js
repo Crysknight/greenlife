@@ -2,6 +2,7 @@ import order from './order';
 import { orderChanged, orderLoadedFromStorage } from './order';
 import svgPlus from '../../img/plus.svg';
 import svgMinus from '../../img/minus.svg';
+import accept from '../../img/accept.svg';
 import indentPrice from '../utils/indent-price';
 import '../utils/jquery.maskedinput.min.js';
 
@@ -242,7 +243,7 @@ $(document).ready(function() {
 					</div>
 				</div>
 				<div class="gl-order-form">
-					<div class="form">
+					<form class="form" id="submit_form">
 						<h3>Оформление заказа</h3>
 						<input class="order-customer" type="text" placeholder="ФИО" />
 						<input class="order-phone" placeholder="Номер телефона" />
@@ -256,10 +257,17 @@ $(document).ready(function() {
 							</div>
 						</div>
 						<hr>
-					</div>
+					</form>
 					<div class="gl-buttons">
 						<button class="gl-back gl-section-button">Назад</button>
-						<button class="gl-submit-form gl-section-button">Оформить заказ</button>
+						<button type="submit" form="submit_form" class="gl-submit-form gl-section-button">Оформить заказ</button>
+					</div>
+					<div class="gl-thank-you">
+						<img src=${accept} />
+						<h2 class="gl-section-title">Спасибо</h2>
+						<div class="gl-content-title">Заказ успешно оформлен</div>
+						<div class="gl-content-title">Мы свяжемся с Вами в ближайшее время</div>
+						<button class="gl-section-button close-form">Закрыть</button>
 					</div>
 				</div>
 			`;
@@ -292,6 +300,57 @@ $(document).ready(function() {
 				event.stopPropagation();
 				let id = +$(this).parents('.order-item').attr('id').slice(11);
 				controlDelivery(id);
+			});
+
+			orderInNavbar.find('.gl-submit-order').click(function() {
+				orderInNavbar.find('.gl-order-form').addClass('show');
+			});
+
+			orderInNavbar.find('.gl-back').click(function() {
+				orderInNavbar.find('.gl-order-form').removeClass('show');
+			});
+
+			orderInNavbar.find('#submit_form').submit(function(event) {
+				event.preventDefault();
+				let validation = true;
+				let form = $('.gl-order-form');
+				if (form.find('.gl-submit-form').hasClass('disabled')) return;
+				let orderToSubmit = {
+					customer: form.find('input.order-customer').val(),
+					phone: form.find('input.order-phone').val(),
+					email: form.find('input.order-email').val(),
+					address: form.find('textarea.order-address').val()
+				};
+				Object.defineProperty(orderToSubmit, 'order', {
+					value: order,
+					enumerable: false
+				});
+				for (let prop in orderToSubmit) {
+					if (orderToSubmit[prop] === '' || orderToSubmit[prop].match(/^ +$/)) {
+						validation = false;
+						let respectiveEl = form.find(`.order-${prop}`);
+						respectiveEl.addClass('error');
+						setTimeout(() => {
+							respectiveEl.removeClass('error');
+						}, 2000);
+					}
+				}
+				if (validation) {
+					$.get('/', function() {
+						$('.gl-thank-you').addClass('show');
+					});
+				} else {
+					form.find('.gl-submit-form').addClass('error');
+					setTimeout(() => {
+						form.find('.gl-submit-form').removeClass('error');
+					}, 2000);
+				}
+			});
+
+			orderInNavbar.find('.close-form').click(function() {
+				$('.gl-your-order span.nav-link').click();
+				order.splice(0, order.length);
+				$(document).trigger(orderChanged);
 			});
 
 			orderInNavbar.find('.gl-order-form .order-phone').mask('+7 (999) 999-99-99');

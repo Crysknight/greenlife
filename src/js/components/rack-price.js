@@ -16,7 +16,7 @@ window.addEventListener('load', function() {
 		let scrollWithPrice = () => {
 			let scroll = $(this).scrollTop();
 			console.log(scroll + priceSumHeight + navbarHeight, footerOffset);
-			if (scroll + priceBlockHeight + navbarHeight + 72 >= footerOffset && !isPBBiggerThanWindow) {
+			if (scroll + priceBlockHeight + navbarHeight >= footerOffset && !isPBBiggerThanWindow) {
 				priceBlock.css({
 					'position': 'absolute',
 					'bottom': 0,

@@ -111,6 +111,9 @@ p.gl-section-secondary {
 		background-color: $glCGreen;
 		color: $glCWhite;
 	}
+	&:focus {
+		outline: none;
+	}
 	@include respond-custom(401px, 520px) {
 		width: 170px;
 		font-size: 11px;

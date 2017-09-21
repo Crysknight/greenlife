@@ -134,7 +134,7 @@ $(document).ready(function() {
 					prop === 'delivery' || 
 					prop === 'additional'
 				) continue;
-				console.log(item[prop], itemToAdd[prop]);
+				// console.log(item[prop], itemToAdd[prop]);
 				if (item[prop] !== itemToAdd[prop]) itemIsOld = false;
 			}
 			if (!itemIsOld) continue;
@@ -161,8 +161,8 @@ $(document).ready(function() {
 
 		$(document).trigger(orderChanged);
 
-		console.log(itemIsNew);
-		console.dir(itemToAdd);
+		// console.log(itemIsNew);
+		// console.dir(itemToAdd);
 
 		// order.push({
 		// 	id: order.length,

@@ -427,11 +427,15 @@
 			width: 100%;
 			position: absolute;
 			top: 0;
-			transform: translateY(0vh);
+			transform: translateY(100vh);
 			height: 100%;
 			transition: all 0.3s;
 			background-color: $glCLightLightGrey;
 			overflow: auto;
+			overflow-x: hidden;
+			&.show {
+				transform: translateY(0vh);
+			}
 			.form {
 				padding: 20px;
 				height: calc(100vh - 119px);
@@ -452,7 +456,12 @@
 				padding: 0 0 0 30px;
 				background-color: $glCGrey;
 				margin-bottom: 20px;
+				transition: all 0.15s;
 				@include placeholder($glCSatanGrey);
+				&.error {
+					box-shadow: 0 0 3px 2px $glCRed;
+					@include placeholder($glCRed);
+				}
 			}
 			textarea {
 				padding-top: 15px;
@@ -483,6 +492,46 @@
 						background-color: transparent;
 						color: $glCGreen;
 					}
+				}
+				&.error {
+					background-color: transparent;
+					transition: all 0.15s;
+					box-shadow: 0 0 3px 2px $glCRed;
+					border: 2px solid $glCRed;
+					color: $glCRed;
+				}
+			}
+			.gl-thank-you {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				align-content: center;
+				flex-wrap: wrap;
+				height: calc(100vh - 44px);
+				width: 100%;
+				position: absolute;
+				top: 0;
+				background-color: $glCLightLightGrey;
+				transform: translateX(100%);
+				transition: all 0.2s;
+				&.show {
+					transform: translateX(0%);
+				}
+				img {
+					width: 50px;
+					height: 50px;
+					margin-bottom: 20px;
+				}
+				h2, .gl-content-title {
+					width: 100%;
+					text-align: center;
+				}
+				h2 {
+					margin-bottom: 12px;
+				}
+				.close-form {
+					position: absolute;
+					bottom: 30px;
 				}
 			}
 		}
