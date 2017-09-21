@@ -242,20 +242,25 @@ $(document).ready(function() {
 					</div>
 				</div>
 				<div class="gl-order-form">
-					<h3>Оформление заказа</h3>
-					<input type="text" placeholder="ФИО" />
-					<input class="order-phone" placeholder="Номер телефона" />
-					<input type="email" placeholder="Адрес электронной почты" />
-					<textarea placeholder="Адрес доставки" />
-					<div class="order-form-delimiter"></div>
-					<div class="item-delivery">
-						<div class="order-checkbox checked"></div>
-						<div class="delivery-info">
-							<div class="info-title">Согласие на обработку персональных данных</div>
+					<div class="form">
+						<h3>Оформление заказа</h3>
+						<input class="order-customer" type="text" placeholder="ФИО" />
+						<input class="order-phone" placeholder="Номер телефона" />
+						<input class="order-email" type="email" placeholder="Адрес электронной почты" />
+						<textarea class="order-address" placeholder="Адрес доставки" />
+						<hr>
+						<div class="item-delivery">
+							<div class="order-checkbox checked"></div>
+							<div class="delivery-info">
+								<div class="info-title">Согласие на обработку персональных данных</div>
+							</div>
 						</div>
+						<hr>
 					</div>
-					<div class="order-form-delimiter"></div>
-					<button class="gl-submit-order gl-section-button">Оформить заказ</button>
+					<div class="gl-buttons">
+						<button class="gl-back gl-section-button">Назад</button>
+						<button class="gl-submit-form gl-section-button">Оформить заказ</button>
+					</div>
 				</div>
 			`;
 
@@ -289,7 +294,13 @@ $(document).ready(function() {
 				controlDelivery(id);
 			});
 
-			orderInNavbar.find('.gl-order-form .order-phone').mask("+7 (999) 999-99-99");
+			orderInNavbar.find('.gl-order-form .order-phone').mask('+7 (999) 999-99-99');
+
+			orderInNavbar.find('.gl-order-form .order-checkbox').click(function(event) {
+				event.stopPropagation();
+				$(this).toggleClass('checked');
+				$('.gl-order-form .gl-submit-form').toggleClass('disabled');
+			});
 
 			if ($('span.price-number').width() > 180) {
 				$('span.price-number').css({ "font-size": "26px" });

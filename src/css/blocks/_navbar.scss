@@ -425,22 +425,65 @@
 		}
 		.gl-order-form {
 			width: 100%;
-			padding: 20px;
 			position: absolute;
 			top: 0;
-			height: calc(100vh - 44px);
 			transform: translateY(0vh);
+			height: 100%;
 			transition: all 0.3s;
 			background-color: $glCLightLightGrey;
+			overflow: auto;
+			.form {
+				padding: 20px;
+				height: calc(100vh - 119px);
+				overflow: auto;
+			}
+			h3 {
+				font-size: 20px;
+				font-family: $glFMedium;
+				margin-bottom: 25px;
+			}
 			input, textarea {
 				display: block;
 				width: 100%;
+				height: 55px;
 				border: none;
 				outline: none;
 				resize: none;
-				padding: 15px 0 0 30px;
+				padding: 0 0 0 30px;
 				background-color: $glCGrey;
+				margin-bottom: 20px;
 				@include placeholder($glCSatanGrey);
+			}
+			textarea {
+				padding-top: 15px;
+				height: 105px;
+			}
+			.item-delivery {
+				justify-content: flex-start;
+			}
+			.gl-buttons {
+				display: flex;
+				justify-content: space-around;
+				position: absolute;
+				width: 100%;
+				padding-top: 15px;
+				bottom: 15px;
+				left: 0;
+				border-top: 1px solid $glCGrey;
+			}
+			.gl-section-button {
+				background-color: transparent;
+				&:hover {
+					background-color: $glCGreen;
+				}
+				&.disabled {
+					opacity: 0.5;
+					cursor: default;
+					&:hover {
+						background-color: transparent;
+						color: $glCGreen;
+					}
+				}
 			}
 		}
 	}

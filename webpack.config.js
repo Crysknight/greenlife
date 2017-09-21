@@ -21,16 +21,11 @@ module.exports = {
 				include: path.resolve(__dirname, 'src/css'),
 				use: extractPlugin.extract({
 					use: [
-						{
-							loader: 'css-loader',
-							options: {
-								root: '..',
-								url: false
-							}
-						}, 
+						'css-loader', 
 						'postcss-loader', 
 						'sass-loader'
-					]
+					],
+					publicPath: '../'
 				})
 			},
 			{
@@ -73,7 +68,8 @@ module.exports = {
 					{
 						loader: 'file-loader',
 						options: {
-							name: 'img/[name].[ext]'
+							name: '[name].[ext]',
+							outputPath: 'img/'
 						}
 					},
 					'image-webpack-loader'
