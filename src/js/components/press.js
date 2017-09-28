@@ -1,20 +1,20 @@
 import stretchAndCenter from '../utils/stretch-and-center';
 
-$(document).ready(function() {
+window
 
-	if ($('.news-block').length > 0) {
-
-		$('.close-button').click(function() {
-
-			$('.fancybox-close-small').click();			
-
-		});
-
-	}
-
-});
+let hidePopup = (_this) => {
+	_this.animate({
+		'opacity': 0
+	}, 300, function() {
+		_this.find('.news-block-inner').html('');
+		_this.css({ 'display': 'none' });
+		_this.parents('.news-block').removeClass('popped');
+	});
+	$('body').css({ 'overflow-y': 'auto' });
+};
 
 window.addEventListener('load', () => {
+
 
 	if ($('.news-block').length > 0) {
 
@@ -22,70 +22,83 @@ window.addEventListener('load', () => {
 
 		$(window).resize(() => stretchAndCenter($('.news-block'), '.block-bg img'));
 
+	}
+
+});
+
+$(document).ready(function() {
+
+	if ($('.news-block').length > 0) {
+
+		let pressRootHref = window.location.pathname.match(/^\/[\w.]+\/?/)[0];
+
+		$('.news-block').click(function() {
+			let _this = $(this);
+			if (!_this.hasClass('popped')) {
+				_this.addClass('popped');
+				let url = $(this).attr('data-src');
+				$.get({
+					url,
+					success: function(response) {
+						window.history.pushState({ page: url }, '', url.replace(/http:\/\/[\w.]+\//, ''));
+						_this.find('.news-block-inner').html(response);
+						_this.find('.news-block-wrapper').css({ 'display': 'block' }).animate({
+							'opacity': 1
+						}, 300);
+						$('body').css({ 'overflow-y': 'hidden' });
+					}
+				});
+			}
+		});
+
+		$('.news-block-wrapper').click(function(e) {
+			if ($(e.target).is(`
+				.news-block-wrapper, 
+				.close-button, 
+				.news-block-inner,
+				.news-block-inner>.container>.row
+			`)) {
+				hidePopup($(this));
+			}
+		});
+
+		window.addEventListener('popstate', function(event) {
+			let pathname = window.location.pathname;
+			if (pathname === pressRootHref) {
+				hidePopup($('.news-block.popped .news-block-wrapper'));
+			} else {
+				let _this = $(`.news-block[data-src="${pathname}"]`);
+				$.get({
+					url: pathname,
+					success: function(response) {
+						_this.addClass('popped');
+						_this.find('.news-block-inner').html(response);
+						_this.find('.news-block-wrapper').css({ 'display': 'block' }).animate({
+							'opacity': 1
+						}, 300);
+						$('body').css({ 'overflow-y': 'hidden' });
+					}
+				});
+			}
+		});
+
 		$('.gl-section-button.press-show-more').click(function() {
 
-		/* =================================================================================================== */
-		/* < MOCK PART > */
-		/* =================================================================================================== */
-
-			$.get({
-				url: '/',
-				success: function() {
-					let response;
-					if (location.pathname.match(/gallery/)) {
-						response = `
-							<div class="col-lg-4 col-md-6 col-12">
-								<a class="news-block" href="./img/gallery-photo-2.jpg" data-fancybox="group">
-									<img src="./img/gallery-photo-2.jpg" alt="">
-									<div class="block-bg"><img src="./img/gallery-photo-2.jpg" alt=""></div>
-								</a>
-							</div>
-							<div class="col-lg-4 col-md-6 col-12">
-								<a class="news-block" href="./img/article-gallery-image.jpg" data-fancybox="group">
-									<img src="./img/article-gallery-image.jpg" alt="">
-									<div class="block-bg"><img src="./img/article-gallery-image.jpg" alt=""></div>
-								</a>
-							</div>
-							<div class="col-lg-4 col-md-6 col-12">
-								<a class="news-block" href="./img/gallery-photo-2.jpg" data-fancybox="group">
-									<img src="./img/gallery-photo-2.jpg" alt="">
-									<div class="block-bg"><img src="./img/gallery-photo-2.jpg" alt=""></div>
-								</a>
-							</div>
-						`;
-					} else {
-						response = `
-							<div class="col-lg-4 col-md-6 col-12">
-								<a class="news-block" data-src="#news-block-inner-1"," data-fancybox="group">
-									<div class="block-bg"><img src="./img/article-gallery-image.jpg" alt=""></div>
-									<div class="block-bg-cover"></div>
-									<p class="block-date gl-section-title">01 Августа 2017</p>
-									<h2 class="block-title gl-content-title">Новость в три строки с картинкой на подложке с затемнением в 70%</h2>
-								</a>
-							</div>
-							<div class="col-lg-4 col-md-6 col-12">
-								<a class="news-block" data-src="#news-block-inner-1"," data-fancybox="group">
-									<div class="block-bg"><img src="./img/article-gallery-image.jpg" alt=""></div>
-									<div class="block-bg-cover"></div>
-									<p class="block-date gl-section-title">07 Августа 2017</p>
-									<h2 class="block-title gl-content-title">Новость в две строки с картинкой на подложке</h2>
-								</a>
-							</div>
-							<div class="col-lg-4 col-md-6 col-12">
-								<a class="news-block no-image" data-src="#news-block-inner-1"," data-fancybox="group">
-									<div class="block-bg"></div>
-									<div class="block-bg-cover"></div>
-									<p class="block-date gl-section-title">10 Августа 2017</p>
-									<h2 class="block-title gl-content-title">Новость в одну строку</h2>
-								</a>
-							</div>
-						`;
+			$.post({
+				url: window.location.pathname,
+				data: {
+					paged: $(this).attr('data-paged')
+				},
+				success: function(response) {
+					let _this = $('.gl-section-button.press-show-more');
+					$('.gl-press-chart .row').append(response);
+					stretchAndCenter($('.news-block'), '.block-bg img');
+					$('.gl-section-button.press-show-more-inversed').stop().css({ 'width': 0 });
+					_this.attr('data-paged', (+_this.attr('data-paged') + 1));
+					if (_this.attr('data-max-page') < _this.attr('data-paged')) {
+						_this.remove();
+						$('.gl-section-button.press-show-more-inversed').remove();
 					}
-					setTimeout(function() {
-						$('.gl-press-chart .row').append(response);
-						stretchAndCenter($('.news-block'), '.block-bg img');
-						$('.gl-section-button.press-show-more-inversed').css({ 'width': 0 });
-					}, 1000);
 				}
 			});
 

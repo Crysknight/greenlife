@@ -12,7 +12,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'js/scripts.js',
-		publicPath: '/'
+		publicPath: ''
 	},
 	module: {
 		rules: [
@@ -138,5 +138,12 @@ module.exports = {
 			minify: false
 		}),
 		new CleanWebpackPlugin(['dist'])
-	]
+	],
+	devServer: {
+		proxy: {
+			"/greenlife": {
+				target: "http://localhost"
+			}
+		}
+	}
 };

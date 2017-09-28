@@ -1,4 +1,5 @@
 import 'jquery';
+require('expose-loader?$!jquery');
 import 'bootstrap';
 import { device } from 'device.js';
 import '@fancyapps/fancybox/dist/jquery.fancybox.js';

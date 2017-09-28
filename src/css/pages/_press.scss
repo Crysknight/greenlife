@@ -89,6 +89,20 @@
 	}
 }
 
+.news-block-wrapper {
+	width: 100%;
+	height: calc(100vh - 44px);
+	padding: 30px 0;
+	position: fixed;
+	top: 44px;
+	left: 0;
+	z-index: 60;
+	background-color: transparentize($glCBlack, 0.1);
+	display: none;
+	opacity: 0;
+	overflow-y: auto;
+}
+
 .news-block-inner {
 	background-color: transparent;
 	.inner-wrapper {
@@ -96,10 +110,11 @@
 		border: 4px solid $glCGreen;
 		padding: 70px 0;
 		position: relative;
+		cursor: default;
 		.inner-date {
 			margin-bottom: 30px;
 		}
-		.inner-header {
+		.inner-header, .trashcan h2 {
 			font-size: 30px;
 			font-family: $glFLight;
 			margin-bottom: 30px;
@@ -135,6 +150,18 @@
 			&:after {
 				transform: rotate(-45deg);
 			}
+		}
+	}
+	.trashcan {
+		.trashcan-delimiter {
+			margin-top: 30px;
+			height: 4px;
+			background-color: $glCGreen;
+		}
+		h2.article-title {
+			color: $glCBlack;
+			margin-top: 30px;
+			margin-bottom: 15px;
 		}
 	}
 }
