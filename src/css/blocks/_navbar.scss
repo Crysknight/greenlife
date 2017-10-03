@@ -81,6 +81,9 @@
 			img {
 				transition: all 0.2s;
 			}
+			.nav-link {	
+				cursor: pointer;
+			}
 		}
 		&.dropdown.gl-your-order.order-added {
 			html.mobile & {
@@ -517,10 +520,11 @@
 				&.show {
 					transform: translateX(0%);
 				}
-				img {
+				.accept {
 					width: 50px;
 					height: 50px;
 					margin-bottom: 20px;
+					background-image: url('../img/accept.svg');
 				}
 				h2, .gl-content-title {
 					width: 100%;

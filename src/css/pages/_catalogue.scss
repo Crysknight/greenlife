@@ -227,6 +227,21 @@
 				margin-bottom: 30px;
 			}
 		}
+		a.video {
+			position: relative;
+		}
+		a.video:after {
+			content: '';
+			display: block;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 15;
+			background-image: url('../img/video.png');
+			background-size: cover;
+		}
 		a:focus {
 			outline: none;
 		}

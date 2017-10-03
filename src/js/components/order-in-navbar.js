@@ -1,8 +1,5 @@
 import order from './order';
 import { orderChanged, orderLoadedFromStorage } from './order';
-import svgPlus from '../../img/plus.svg';
-import svgMinus from '../../img/minus.svg';
-import accept from '../../img/accept.svg';
 import indentPrice from '../utils/indent-price';
 import '../utils/jquery.maskedinput.min.js';
 
@@ -160,10 +157,10 @@ $(document).ready(function() {
 									<span class="price-comment">В месяц</span>
 								</div>
 								<div class="item-controls">
-									<button class="controls-minus"><img src="${svgMinus}"></button>
+									<button class="controls-minus"><div></div></button>
 									<div class="item-quantity"><span>${orderItem.quantity}</span></div>
-									<button class="controls-plus"><img src="${svgPlus}"></button>
-									<button class="item-delete"><img src="${svgPlus}"></button>
+									<button class="controls-plus"><div></div></button>
+									<button class="item-delete"><div></div></button>
 								</div>
 							</div>
 							<hr />
@@ -263,7 +260,7 @@ $(document).ready(function() {
 						<button type="submit" form="submit_form" class="gl-submit-form gl-section-button">Оформить заказ</button>
 					</div>
 					<div class="gl-thank-you">
-						<img src=${accept} />
+						<div class="accept"></div>
 						<h2 class="gl-section-title">Спасибо</h2>
 						<div class="gl-content-title">Заказ успешно оформлен</div>
 						<div class="gl-content-title">Мы свяжемся с Вами в ближайшее время</div>
@@ -336,9 +333,19 @@ $(document).ready(function() {
 					}
 				}
 				if (validation) {
-					$.get('/', function() {
-						$('.gl-thank-you').addClass('show');
-					});
+					$.post(
+						'/wp-admin/admin-ajax.php', 
+						{
+							action: 'ajax_send_order',
+							name: customer,
+							phone,
+							email,
+							address,
+							content: order
+						}, 
+						function() {
+							$('.gl-thank-you').addClass('show');
+						});
 				} else {
 					form.find('.gl-submit-form').addClass('error');
 					setTimeout(() => {

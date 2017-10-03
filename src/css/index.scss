@@ -195,7 +195,7 @@ a {
 
 .item-controls {
 	display: flex;
-	button, div {
+	&>button, &>div {
 		display: -webkit-inline-box;
 		align-items: center;
 		justify-content: center;
@@ -211,6 +211,13 @@ a {
 		font-size: 16px;
 		html.windows & {
 			display: inline-flex;
+		}
+		div {
+			width: 26px;
+			height: 26px;
+			background-size: 50%;
+			background-repeat: no-repeat;
+			background-position: center;
 		}
 		@include respond-custom(320px, 520px) {
 			height: 20px;
@@ -239,6 +246,9 @@ a {
 	.controls-minus {
 		border-right: none;
 		border-radius: 3px 0 0 3px;
+		div {
+			background-image: url('../img/minus.svg');
+		}
 	}
 	.item-quantity {
 		border-left: none;
@@ -248,13 +258,17 @@ a {
 	.controls-plus {
 		border-left: none;
 		border-radius: 0 3px 3px 0;
+		div {
+			background-image: url('../img/plus.svg');
+		}
 	}
 	.item-delete {
 		margin-left: 20px;
 		@include respond-custom(320px, 520px) {
 			margin-left: 0;
 		}
-		img {
+		div {
+			background-image: url('../img/plus.svg');
 			transform: rotate(45deg);
 		}
 	}

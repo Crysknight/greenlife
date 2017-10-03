@@ -22,6 +22,7 @@ import './components/content-gallery';
 import './components/rack-price';
 import './components/catalogue';
 import './components/press';
+import './components/footer';
 
 device.addClasses(document.documentElement);
 

@@ -35,7 +35,7 @@
 		float: none;
 		&:hover {
 			background-color: $glCWhite;
-			color: $glCCoal;
+			color: $glCCoal !important;
 		}
 		@include respond-to(sm) {
 			margin-top: -85px;
@@ -87,4 +87,41 @@
 		margin: 0 0 15px;
 	}
 
+}
+
+.gl-feedback {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: calc(100vh - 44px);
+	margin-top: 44px;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.feedback-form, .feedback-thank-you {
+		height: 400px;
+		width: 540px;
+		padding: 40px;
+		background-color: $glCWhite;
+		border: 4px solid $glCGreen;
+	}
+	.feedback-form {
+		input {		
+	    display: block;
+	    width: 100%;
+	    height: 55px;
+	    border: none;
+	    outline: none;
+	    resize: none;
+	    padding: 0 0 0 30px;
+	    background-color: #ededed;
+	    margin-bottom: 20px;
+	    transition: all 0.15s;
+		}
+	}
+	.feedback-thank-you {
+		display: none;
+	}
 }

@@ -104,13 +104,16 @@
 			display: block;
 			box-sizing: border-box;
 			margin: 0 auto;
-			width: 95%;
+			height: 250px;
 			border: 1px solid $glCGreen;
+			@include respond-custom(621px, 1200px) {
+				height: 205px;
+			}
 			@include respond-custom(401px, 620px) {
-				width: 80%;
+				height: 230px;
 			}
 			@include respond-custom(320px, 400px) {
-				width: 75%;
+				height: 170px;
 			}
 		}
 	}
@@ -134,14 +137,8 @@
 				}
 			}
 		}
-		@include respond-to(md) {
-			top: 70px;
-		}
-		@include respond-to(sm) {
-			top: 70px;
-		}
 		@include respond-to(xs) {
-			top: 100px;
+			top: 85px;
 			html.ipad & {
 				top: 90px;
 			}
