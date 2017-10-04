@@ -5,6 +5,8 @@
 				<h3><span class="gl-f-bold">Гринлайф. </span><span>Строительные бытовки</span></h3>
 				<p class="all-rights-reserved">2007-2017. Все права защищены</p>
 				<p class="gl-copyright">Разработано в Plan B</p>
+				<!-- TODO: кнопка с классом feedback вызывает feedback. Артем мне так и не сказал, какую
+				кнопку использовать для этого, поэтому я взял ту, что в футере. -->
 				<a class="gl-section-button feedback">Обратная связь</a>
 			</div>
 			<div class="col-lg-8 gl-sitemap">
@@ -55,20 +57,24 @@
 	</div>
 </div>
 
+<!-- TODO: вставить то, что снизу в футер -->
+
 <div class="gl-feedback">
 	<div class="feedback-form">
+		<button class="feedback-close"></button>
 		<h3 class="gl-section-title">Связаться с нами</h3>
 		<p class="gl-section-primary">Обратный звонок</p>
 		<form class="feedback">
-			<input class="feedback-name" placeholder="Как к Вам обращаться?" />
-			<input class="feedback-phone" placeholder="Ваш номер телефона" />
+			<input class="feedback-name" required placeholder="Как к Вам обращаться?" />
+			<input class="feedback-phone" required placeholder="Ваш номер телефона" />
 			<button type="submit" class="gl-section-button feedback-submit">Отправить</button>
 		</form>
 	</div>
 	<div class="feedback-thank-you">
+		<button class="feedback-close"></button>
 		<h3 class="gl-section-title">Связаться с нами</h3>
 		<p class="gl-section-primary">Обратный звонок</p>
 		<p>Заявка на обратный звонок успешно отправлена.<br>Мы свяжемся с Вами в ближайшее время для уточнения всех деталей и ответим на все Ваши вопросы.</p>
-		<button class="gl-section-button">Закрыть</button>
+		<button class="gl-section-button feedback-close">Закрыть</button>
 	</div>
 </div>
