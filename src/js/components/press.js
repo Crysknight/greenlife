@@ -32,15 +32,16 @@ $(document).ready(function() {
 
 		let pressRootHref = window.location.pathname.match(/^\/[\w.]+\/?/)[0];
 
-		$('.news-block').click(function() {
+		$('.news-block').click(function(e) {
+			e.preventDefault();
 			let _this = $(this);
 			if (!_this.hasClass('popped')) {
 				_this.addClass('popped');
-				let url = $(this).attr('data-src');
+				let url = $(this).attr('href');
 				$.get({
 					url,
 					success: function(response) {
-						window.history.pushState({ page: url }, '', url.replace(/http:\/\/[\w.]+\//, ''));
+						window.history.pushState({ page: url }, '', url);
 						_this.find('.news-block-inner').html(response);
 						_this.find('.news-block-wrapper').css({ 'display': 'block' }).animate({
 							'opacity': 1

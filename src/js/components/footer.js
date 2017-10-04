@@ -22,7 +22,7 @@ $(document).ready(function() {
 	form.submit(function(event) {
 		event.preventDefault();
 		let feedback = {
-			action: 'ajax_send_feedback',
+			action: 'send_feedback',
 			name: $(event.target[0]).val(),
 			phone: $(event.target[1]).val()
 		};

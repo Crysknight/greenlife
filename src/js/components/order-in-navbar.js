@@ -332,17 +332,18 @@ $(document).ready(function() {
 						}, 2000);
 					}
 				}
+				let orderString = '';
 				if (validation) {
 					$.post(
 						'/wp-admin/admin-ajax.php', 
 						{
-							action: 'ajax_send_order',
-							name: customer,
-							phone,
-							email,
-							address,
+							action: 'send_order',
+							name: orderToSubmit.customer,
+							phone: orderToSubmit.phone,
+							email: orderToSubmit.email,
+							address: orderToSubmit.address,
 							content: order
-						}, 
+						},
 						function() {
 							$('.gl-thank-you').addClass('show');
 						});
