@@ -1,4 +1,5 @@
 const order = [];
+window.order = order;
 
 const orderChanged = $.Event('ORDER_CHANGED');
 const orderLoadedFromStorage = $.Event('ORDER_LOADED_FROM_STORAGE');

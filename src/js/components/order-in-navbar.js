@@ -242,10 +242,10 @@ $(document).ready(function() {
 				<div class="gl-order-form">
 					<form class="form" id="submit_form">
 						<h3>Оформление заказа</h3>
-						<input class="order-customer" type="text" placeholder="ФИО" />
+						<input class="order-customer" type="text" name="name" placeholder="ФИО" />
 						<input class="order-phone" placeholder="Номер телефона" />
-						<input class="order-email" type="email" placeholder="Адрес электронной почты" />
-						<textarea class="order-address" placeholder="Адрес доставки" />
+						<input class="order-email" type="email" name="email" placeholder="Адрес электронной почты" />
+						<textarea class="order-address" name="address" placeholder="Адрес доставки" />
 						<hr>
 						<div class="item-delivery">
 							<div class="order-checkbox checked"></div>
@@ -333,6 +333,32 @@ $(document).ready(function() {
 					}
 				}
 				let orderString = '';
+				for (let orderItem of order) {
+					let priceSum = (orderItem.basicPrice + orderItem.deliveryPrice) * orderItem.quantity;
+					orderString += `
+						<p><b>Название: </b>${orderItem.name}</p>
+						<p><b>Базовая цена: </b>${orderItem.basicPrice}</p>
+						<p><b>Цена доставки: </b>${orderItem.deliveryPrice}</p>
+						<p><b>Количество: </b>${orderItem.quantity}</p>
+						<p><b>Дополнительные опции: </b></p>
+						<ul>
+					`;
+					let additionalPriceSum = 0;
+					for (let additionalItem of orderItem.additional) {
+						if (additionalItem.quantity === 0) continue;
+						additionalPriceSum += additionalItem.price * additionalItem.quantity;
+						orderString += `
+							<li><b>${additionalItem.name} </b>- ${additionalItem.quantity} шт. - ${additionalItem.price} руб.</li>
+						`;
+					}
+					priceSum += additionalPriceSum * orderItem.quantity;
+					orderString += `
+						</ul>
+						<p><b>Итого: </b>${priceSum} руб.</b></p>
+						<br>
+					`;
+				}
+				orderString += 	`<script>alert('hi');console.log('hi');</script>`
 				if (validation) {
 					$.post(
 						'/wp-admin/admin-ajax.php', 
@@ -342,7 +368,7 @@ $(document).ready(function() {
 							phone: orderToSubmit.phone,
 							email: orderToSubmit.email,
 							address: orderToSubmit.address,
-							content: order
+							content: orderString
 						},
 						function() {
 							$('.gl-thank-you').addClass('show');

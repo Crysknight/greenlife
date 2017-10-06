@@ -1,4 +1,5 @@
 import $script from 'scriptjs';
+import dots from './map-dots';
 
 if ($('.gl-google-map').length > 0) {
 	$script('https://maps.googleapis.com/maps/api/js?key=AIzaSyCWgWiXe4fdVDjYj6-APt80DhtH2o05w8U&amp', function() {
@@ -75,43 +76,9 @@ if ($('.gl-google-map').length > 0) {
 		// 	this.setMap(map);
 		// };
 
-		$.get("/", function(data) {
-
-			let response = [
-				{
-					lat: 60.412952,
-					lng: 101.193849,
-					number: 1
-				},
-				{
-					lat: 63.412952,
-					lng: 111.193849
-				},
-				{
-					lat: 58.412952,
-					lng: 108.193849,
-					number: 2
-				},
-				{
-					lat: 60.104104,
-					lng: 65.303040
-				},
-				{
-					lat: 72.412952,
-					lng: 128.193849,
-					number: 3
-				},
-				{
-					lat: 70.104104,
-					lng: 95.303040
-				}
-			];
-
-			for (let coor of response) {
-				new CustomMarker(new google.maps.LatLng(coor.lat, coor.lng), map, { number: coor.number });
-			}
-
-		});
+		for (let coor of dots) {
+			new CustomMarker(new google.maps.LatLng(coor.lat, coor.lng), map, { number: coor.number });
+		}
 
 	});
 }
