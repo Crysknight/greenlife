@@ -164,4 +164,10 @@
 			margin-bottom: 15px;
 		}
 	}
+	.gl-section-button {
+		color: $glCGreen !important;
+		&:hover {
+			color: $glCWhite !important;
+		}
+	}
 }

@@ -7,6 +7,9 @@
 	.gl-google-map {
 		height: 500px;
 		background-color: lighten($glCGreen, 40%);
+		background-image: url('../img/map.png');
+		background-size: cover;
+		background-position: center center;
 		@include respond-to(sm) {
 			height: 400px;
 		}
@@ -15,26 +18,27 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 35px;
-		height: 35px;
+		width: 18px;
+		height: 18px;
 		background-color: $glCWhite;
+		border: 1px solid $glCGreen;
 		border-radius: 50%;
 		box-sizing: border-box;
 		html.desktop &:hover {
 			animation: markerFlicker 2s infinite;
 		}
-		&.numbered {
-			color: $glCGreen;
-			font-size: 16px;
-			border: $glXBorderGreen;
-		}
-		&.unnumbered:after {
-			display: inline-block;
-			content: "";
-			width: 6px;
-			height: 6px;
-			background-color: $glCGreen;
-			border-radius: 50%;
-		}
+		// &.numbered {
+		// 	color: $glCGreen;
+		// 	font-size: 16px;
+		// 	border: $glXBorderGreen;
+		// }
+		// &.unnumbered:after {
+		// 	display: inline-block;
+		// 	content: "";
+		// 	width: 6px;
+		// 	height: 6px;
+		// 	background-color: $glCGreen;
+		// 	border-radius: 50%;
+		// }
 	}
 }

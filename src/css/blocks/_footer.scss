@@ -175,6 +175,11 @@
 	}
 	.feedback-thank-you {
 		display: none;
+		position: relative;
 		opacity: 0;
+		.gl-section-button {
+			position: absolute;
+			bottom: 35px;
+		}
 	}
 }

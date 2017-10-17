@@ -47,6 +47,13 @@ $(document).ready(function() {
 							'opacity': 1
 						}, 300);
 						$('body').css({ 'overflow-y': 'hidden' });
+						$('.gl-section-button.feedback').click(function() {
+							$('.gl-feedback').css({ 'display': 'flex' }).animate({
+								'opacity': 1
+							}, 200, function() {
+								$('form.feedback').animate({ 'opacity': 1 }, 200);
+							});
+						});
 					}
 				});
 			}
