@@ -152,22 +152,57 @@
 			}
 		}
 	}
-	.trashcan {
-		.trashcan-delimiter {
-			margin-top: 30px;
-			height: 4px;
-			background-color: $glCGreen;
-		}
-		h2.article-title {
-			color: $glCBlack;
-			margin-top: 30px;
-			margin-bottom: 15px;
-		}
-	}
 	.gl-section-button {
 		color: $glCGreen !important;
 		&:hover {
 			color: $glCWhite !important;
+		}
+	}
+}
+
+.trashcan {
+	.trashcan-delimiter {
+		margin-top: 30px;
+		height: 4px;
+		background-color: $glCGreen;
+	}
+	h2.article-title {
+		color: $glCBlack;
+		margin-top: 30px;
+		margin-bottom: 15px;
+	}
+	.rack-gallery {
+		margin-top: 50px;
+		@include respond-custom(320px, $md) {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+		@include respond-custom(320px, 500px) {
+			flex-wrap: wrap;
+		}
+		.gallery-image {
+			display: block;
+			width: 100%;
+			height: 220px;
+			margin-bottom: 30px;
+			overflow: hidden;
+			@include respond-custom(320px, $md) {
+				display: inline-block;
+				width: auto;
+				margin-left: 10px;
+				&:first-child {
+					margin-left: 0;
+				}
+			}
+			@include respond-custom(320px, 350px) {
+				width: 100%;
+				margin-left: 0;
+			}
+			@include respond-custom(351px, 500px) {
+				width: 65%;
+				margin-left: 0;
+			}
 		}
 	}
 }

@@ -54,6 +54,7 @@ $(document).ready(function() {
 								$('form.feedback').animate({ 'opacity': 1 }, 200);
 							});
 						});
+						stretchAndCenter($('.gallery-image'), '.gallery-image-preview');
 					}
 				});
 			}
