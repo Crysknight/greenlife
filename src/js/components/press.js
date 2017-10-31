@@ -55,6 +55,9 @@ $(document).ready(function() {
 							});
 						});
 						stretchAndCenter($('.gallery-image'), '.gallery-image-preview');
+						$('.news-block a.gl-section-button').click(function() {
+							window.location.pathname = $(this).attr('href');
+						});
 					}
 				});
 			}
